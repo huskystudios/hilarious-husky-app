@@ -11,10 +11,7 @@ return (
   <Accordion.Item eventKey="0">
     <Accordion.Header>Why</Accordion.Header>
     <Accordion.Body>    
-    We wanted to do this because we’re Husky lovers. 
-    The project started out as a programatic pixel art project, but since then we've added some blue sky to our thinking. 
-   As part of the first phase, we will be dropping 3000 Hilarious Husky ERC721 tokens with a number of different traits. Rarity will be
-   announced after we mint out. As part of phase two, we will let the community decide what the project team will do next. Dont forget to join the discord. 
+    We wanted to do this because we’re Husky lovers. The project started out as a programatic pixel art project, but has since expanded as we added some blue sky to our thinking. As part of the first phase, we will be dropping 3000 Hilarious Husky ERC721 tokens with a number of different traits. Rarity will be announced after minting. As a part of phase two, we will have the community decide what the project team will do next. Don't forget to join the discord!
     </Accordion.Body>
   </Accordion.Item>
 
@@ -28,12 +25,10 @@ return (
   <Accordion.Item eventKey="2">
     <Accordion.Header>How can I mint one?</Accordion.Header>
     <Accordion.Body>
-    Some were minted in September for giveaways and for the project team. Some got lucky and minted a few cause I dev forgot to flip the mint swtich at launch. lol.
-    You can mint them at the drop. You can either use this site (click on mint) or you can interact with the contract on etherscan yourself. 
+    While some were minted in September for giveaways and for the project team, a few others got lucky and minted because I definitely forgot to flip the mint swtich at launch. lol. 
+    These can be minted at the drop by either use this site (click on mint) or you can also interact with the contract on etherscan yourself. 
     Verified contract &amp; code is available <a href="https://etherscan.io/address/0x6e918a90dcb258353acca3dfdb2a54a5d81c4596#code"><u>here</u></a>. 
-    Shoot us an email or get in touch with us on <a href="https://twitter.com/HuskiesNft" target="_blank" rel="noopener noreferrer">twitter</a> or on the <a href="https://discord.gg/bYCs6UMWDS" target="_blank" rel="noopener noreferrer">discord </a>if you have any trouble.
-
-
+    Shoot us an email or get in touch with us on either<a href="https://twitter.com/HuskiesNft" target="_blank" rel="noopener noreferrer">twitter</a> or <a href="https://discord.gg/bYCs6UMWDS" target="_blank" rel="noopener noreferrer">discord </a>if you have any trouble.
     </Accordion.Body>
   </Accordion.Item>
 

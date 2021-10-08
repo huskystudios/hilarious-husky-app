@@ -34,22 +34,21 @@ return (
             <div class="lg:text-base xl:text-lg pb-2 text">    
               <Title title="ERC-721 tokens on the Ethereum blockchain and hosted on IPFS." />
           
-          <p>Hilarious Huskies is an NFT collection inspired by Siberian Huskys.Loyal, friendly, and plagued with wanderlust, this collection is a 
-          tribute to our furry friends. 
+          <p>Hilarious Huskies is an NFT collection inspired by Siberian Huskys which are loyal, friendly, and plagued with wanderlust. This collection is a tribute to our furry friends. 
           </p>
           <p>
-          Minting <strong> more than one </strong> of this NFT enters you into the jackpot. Win upto <strong>ETH 6.4</strong> by owning more than 15 huskies. <a href="/jackpot/">Check out the Jackpot here.</a>
+          Minting <strong> more than one </strong> of this NFT enters you into the jackpot. Win up to <strong>ETH 6.4</strong> by owning more than 15 huskies. Max mint per wallet is 20. <a href="/jackpot/">Check out the Jackpot here.</a>
           </p>
           <p>
-          Your NFT also doubles up as a membership card that will give you
-          access to enhancements as we hit project milestones. <a href="/roadmap/">Read more on this here.</a>
+          Your NFT also doubles up as a membership card that will allow you access to enhancements as we hit future project milestones which you can get further information on {" "}
+           <a href="/roadmap/">here.</a>
           </p>
           
 
           
           <p>Follow us on <a href="https://twitter.com/HuskiesNft" target="_blank" rel="noopener noreferrer"><u>twitter</u></a> {" "} 
           and join the <a href="https://discord.gg/bYCs6UMWDS" target="_blank" rel="noopener noreferrer"><u>discord</u></a> {" "}
-          to find out more.</p>
+          to find out more!</p>
         
              </div>
 

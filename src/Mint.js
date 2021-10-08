@@ -208,10 +208,9 @@ address &&(
 <>
 <div class="lg:text-base xl:text-lg py-2 text">    
         <p>
-        <strong>Instructions: </strong>Select the number of huskies to mint, then click on "Mint". 
-        Your wallet will ask you to sign the transaction. 
-        The transaction may take up to 180 seconds to process. 
-        You can monitor the progress on Etherscan. Log onto Discord if you have trouble and we'll help you out!
+        <strong>Instructions: </strong>Select the number of huskies to mint, then click "Mint". 
+        Your wallet will ask you to sign the transaction which can take up to 180 seconds to process. 
+        You can monitor the progress on Etherscan, but log onto Discord if you have trouble and we'll help you out!
         </p>
 </div>
 
