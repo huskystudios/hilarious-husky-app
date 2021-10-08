@@ -21,8 +21,8 @@ const Verify = (props) => {
         <div class="pr-5 py-3">
         <div class="lg:text-base xl:text-lg pb-2 text">    
         <p>
-        Turn your NFTs into verifiable ID assets you can use as proof-of-identity
-Prove the ownership of your JPEGs on any social media or turn them into a proof-of-identity by getting them into MyWalliD wallet.
+        Turn your NFTs into verifiable ID assets you can use as a proof-of-identity.
+        Prove that you own your NFT's on any social media platform or turn them into a proof-of-identity by getting them into MyWalliD wallet.
         </p>
         <p>
           Hilarious Huskies is part of the beta program at WalliD! <a class="hover:underline" href="https://wallid.io/NFTproof" target="_blank">Verify now!</a>
