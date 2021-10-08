@@ -49,7 +49,7 @@ const Team = (props) => {
     <Card.Body>
       <Card.Title>_cryptic_coder</Card.Title>
       <Card.Text>
-        Community Management
+       PenTest dont rest
       </Card.Text>
     </Card.Body>
 

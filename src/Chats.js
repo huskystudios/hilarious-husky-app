@@ -7,7 +7,7 @@ import { getDatabase, ref, set, onValue } from "firebase/database";
 import Form from 'react-bootstrap/Form'
 import Toast from 'react-bootstrap/Toast'
 
-const Chats = ({items}) => {
+const Chats = ({items, wallet}) => {
  
     const [showA, setShowA] = useState(true);
  
@@ -20,15 +20,16 @@ const Chats = ({items}) => {
       const d = new Date(items.time)
       const ts = d.toUTCString();  
      
+      let variantString = "light"
+      if(items.sender === wallet){
+        variantString="dark"
+      }
+
+      console.log(items.sender, "1", wallet, "2")
 
 return (
-<Toast show={showA} onClose={toggleShowA}>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
+<Toast bg={variantString} show={showA} onClose={toggleShowA}>
+          <Toast.Header>            
             <strong className="me-auto">{sender}</strong>
             <small>{ts}</small>
           </Toast.Header>

@@ -64,7 +64,7 @@ const Chat = () => {
     const chatLog = dataArry.map((items)=>{
 
          return(<>
-    <Chats items={items} />
+    <Chats items={items}/>
         </>)
       })
     
