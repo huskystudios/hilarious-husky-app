@@ -1,0 +1,8 @@
+{
+    "name": "Hilarious Huskies",
+    "description": "Hilarious Huskies is an NFT collection inspired a beautiful pup named Hazel.",
+    "image": "https://huskies.s3.eu-west-2.amazonaws.com/images/1.png",
+    "external_link": "https://hilarioushuskies.life",
+    "seller_fee_basis_points": 250,
+    "fee_recipient": "0xCcB6D1e4ACec2373077Cb4A6151b1506F873a1a5" 
+  }

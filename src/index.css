@@ -1,0 +1,21 @@
+@import url("https://use.typekit.net/tnn4uat.css");
+@tailwind base;
+@layer base {
+    h1 {
+      @apply text-3xl;
+    }
+    h2 {
+      @apply text-2xl xl:text-4xl font-bold pb-2;
+    }
+    h3 {
+      @apply text-lg;
+    }
+    a {
+      @apply text-blue-900 underline;
+    }
+    p {
+        @apply lg:text-base xl:text-lg pb-2;
+      }
+  }
+@tailwind components;
+@tailwind utilities;
