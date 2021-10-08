@@ -98,21 +98,22 @@ return (
             <div class="lg:text-base xl:text-lg pb-2 text">    
    
           
-          <p>16% of total sales from the mint will be set aside for the jackpot, potentially valued at 12 ETH. 
-            There will be 4 winners in three tiers, picked at random.
+          <p>16% of all total sales from the mint will be set aside for the jackpot which could potentially be valued at around 12 ETH. 
           </p>
+          <p>4 winners in three tiers will be picked at random.</p>
           <p><strong>Payout</strong>
             <ul class="list-disc">
-              <li>Wallets with less than 10 Huskies: 2 jackpots - <strong>1.2 ETH each</strong></li>
-              <li>Wallets with less than 15 Huskies but greater than 10: <strong>1 jackpot - 3.2 ETH</strong></li>
-              <li>Wallets with more than 15 Huskies: <strong>1 jackpot - 6.4 ETH</strong></li>
+              <li>Tier 3: Wallets with less than 10 Huskies = 2 winners will recieve a single jackpot of <strong>1.2 ETH each</strong></li>
+              <li>Tier 2: Wallets between 15 to 10 Huskies = 1 winner will recieve a single jackpot of <strong>3.2 ETH</strong></li>
+              <li>Tier 1: Wallets with more than 15 Huskies = 1 winner will recieve a single jackpot of <strong>6.4 ETH</strong></li>
             </ul>
             </p><p>
-            <strong>Terms and conditions:</strong>
+            <strong>Terms & Conditions:</strong>
             <ul class="list-disc">
-              <li>At the end of the mint, a random number generator will be used as an index to pick a winner in each tier</li>
-              <li>Winners will be published on website and announced on the discord, ETH will be transfered to their wallets the same day</li>
-              <li>You need to hold on to your Huskies until the draw is complete, 24 hours after we mint out to be eligible.</li>
+              <li>At the end of the mint, a random number generator will be used as an index to pick a winner in each tier.</li>
+              <li>Winners will be published on the website as well as being announced on Discord. </li>
+              <li>ETH will be transferred to the winners wallets the same day.</li>
+              <li>You will need to hold on to your Huskies until the drawing has been completed for at least 24 hours after we mint out in order to be eligible for the jackpot.</li>
             </ul>
             </p>        
 
