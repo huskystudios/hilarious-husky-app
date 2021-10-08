@@ -7,6 +7,11 @@ import ConnectWallet from './ConnectWallet';
 const NavComp = ({props}) => {
 
   return (
+      <>
+      <div class="pt-2 flex justify-end">
+   
+   <ConnectWallet />
+   </div>
     <div class="flex justify-between space-x-2 py-3">    
     <div class="flex space-x-2 md:flex-row-reverse	">
       
@@ -30,11 +35,9 @@ const NavComp = ({props}) => {
         </div>
     </div>
     
-    <div class="pt-2">
-   
-    <ConnectWallet />
+    
     </div>
-    </div>
+    </>
 )}
 
 export default NavComp;

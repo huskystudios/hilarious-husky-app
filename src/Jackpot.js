@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Title from './title';
 import { ownerOf, getTokenSupply } from "./utils/interact";
+import jackpotimg from './media/jackpot.jpg';
 import Spinner from 'react-bootstrap/Spinner'
 import { Button } from "react-bootstrap";
-import jackpot from './media/jackpot.jpg'
+
+
 const Jackpot = (props) => {
 
 const [leaderboard, setLeaderboard] = useState([]);
 const [supply, setSupply] = useState(0);
+const [jackpot, setJackpot] = useState(0);
 const [showLeader, setShowLeader] = useState(false);
 
 const countOccurrences = (arr, val) => arr.reduce((a, v) => (v.address === val ? a + 1 : a), 0);
@@ -30,6 +33,7 @@ useEffect(() => {
 
   getTokenSupply().then((supply)=>{
     setSupply(parseFloat(supply));
+    setJackpot(parseFloat(supply*.025*.16).toFixed(4))
   })
 
   const init = async () => {
@@ -85,7 +89,7 @@ return (
     <div class="md:flex md:flex-row-reverse">
 
     <div class="w-1/3">
-    <img width={290} src={jackpot} class="rounded-full" />
+    <img width={290} src={jackpotimg} class="rounded-full" />
     </div>
         <div class="md:w-2/3">
          
@@ -120,6 +124,7 @@ return (
 </div>
 <div class="flex flex-wrap justify-between">
 <Title title={"Leaderboard"} />
+<Title title={`Jackpot: ${jackpot} ETH`} />
 <Title title={`Total minted: ${supply}/3000`} />
 </div>
 
