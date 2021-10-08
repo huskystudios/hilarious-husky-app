@@ -14,11 +14,11 @@ const NavComp = ({props}) => {
         
         <Navbar>   
             <Nav>
-            <Nav.Link href="/">home</Nav.Link>
-            <Nav.Link href="/mint/">mint</Nav.Link>
-            <Nav.Link href="/jackpot/">jackpot</Nav.Link>
-            <Nav.Link href="/roadmap/">roadmap</Nav.Link>
-            <Nav.Link href="/members/">token hodlers</Nav.Link>            
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/mint/">Mint</Nav.Link>
+            <Nav.Link href="/jackpot/">Jackpot</Nav.Link>
+            <Nav.Link href="/roadmap/">Roadmap</Nav.Link>
+            <Nav.Link href="/members/">Token holders</Nav.Link>            
             </Nav>     
         </Navbar>
       

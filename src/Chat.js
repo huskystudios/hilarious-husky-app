@@ -5,7 +5,8 @@ import { useEffect, useState, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import Form from 'react-bootstrap/Form'
-
+import Chats from "./Chats";
+import ToastContainer from 'react-bootstrap/ToastContainer'
 const Chat = () => {
  
     ///Chat App stuff
@@ -60,16 +61,8 @@ const Chat = () => {
 
     const chatLog = dataArry.map((items)=>{
 
-     const sender = String(items.sender).substring(0, 6) +
-      "..." +
-      String(items.sender).substring(38)
-
-      const d = new Date(items.time)
-      const ts = d.toUTCString();  
-
-  
-        return(<>
-        <div class="border-2 p-2 m-2 w-80">{sender}:<p>{items.chat}</p> <span class="text-xs">{ts}</span></div>
+         return(<>
+    <Chats items={items} />
         </>)
       })
     
@@ -85,22 +78,26 @@ const Chat = () => {
   
 return (
   <div>
-<div class="">
+
+<ToastContainer>
 {data}
-</div>
+
+</ToastContainer>
+
+
 <Form onSubmit={handleSubmit}>
   <Form.Group class="mb-3" controlId="exampleForm.ControlTextarea1">
     <Form.Label>Chat</Form.Label>
     <Form.Control size="lg" type="text" placeholder="Enter your message"
     value={chatText}
     ref={inputRef}
-    onChange={e => setChatText(e.target.value)}
-    
+    onChange={e => setChatText(e.target.value)}    
     />
-  </Form.Group>
-  <Button onClick={handleSubmit}>
+    <Button onClick={handleSubmit}>
       Send
     </Button>
+  </Form.Group>
+  
 </Form>
 
 
