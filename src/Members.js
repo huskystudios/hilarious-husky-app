@@ -76,15 +76,13 @@ const Members = ({}) => {
        
        <Chat/>
         <br/>
-       <ShowCollection />
-
+     
        <div class="pt-4">
-{showCollectionToggle &&
+
 <MyCollection collections={collections} />
-}
 </div>
 
-       </>): (<>no tokens</>) }      
+       </>): (<>You dont have any HUSK tokens in this wallet.</>) }      
    
 
 ‍

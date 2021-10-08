@@ -7,6 +7,8 @@ import { getDatabase, ref, set, onValue } from "firebase/database";
 import Form from 'react-bootstrap/Form'
 import Chats from "./Chats";
 import ToastContainer from 'react-bootstrap/ToastContainer'
+import InputGroup from 'react-bootstrap/InputGroup'
+
 const Chat = () => {
  
     ///Chat App stuff
@@ -78,16 +80,16 @@ const Chat = () => {
   
 return (
   <div>
-
+<h4>Leave a message for the community</h4>
 <ToastContainer>
 {data}
 
 </ToastContainer>
-
+<br/>
 
 <Form onSubmit={handleSubmit}>
-  <Form.Group class="mb-3" controlId="exampleForm.ControlTextarea1">
-    <Form.Label>Chat</Form.Label>
+<InputGroup className="mb-3">
+  
     <Form.Control size="lg" type="text" placeholder="Enter your message"
     value={chatText}
     ref={inputRef}
@@ -96,13 +98,10 @@ return (
     <Button onClick={handleSubmit}>
       Send
     </Button>
-  </Form.Group>
+
+    </InputGroup>
   
 </Form>
-
-
-
-
    
   </div>
 );
