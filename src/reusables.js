@@ -63,7 +63,7 @@ const Socials = (props) => {
             <Nav>
             <Nav.Link href="https://etherscan.io/address/0x6e918a90dcb258353acCa3Dfdb2A54A5D81C4596/">Verified Contract</Nav.Link>
             <Nav.Link href="https://opensea.io/collection/hilarioushuskies">Hilarious Huskies on Opensea</Nav.Link>
-            <Nav.Link href="/provenance/">provenance</Nav.Link>
+            <Nav.Link href="/provenance/">Provenance</Nav.Link>
             </Nav>     
         </Navbar>
     </div>

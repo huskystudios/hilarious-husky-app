@@ -76,13 +76,13 @@ const isMetaMaskInstalled = async () => {
       });
     } else {
       setStatus(
-        <p>
+        <div>
           {" "}
           🦊{" "}
           <a target="_blank" href={`https://metamask.io/download.html`}>
             You must install a compatible web3 wallet in your browser, or launch this page from your wallet browser.
           </a>
-        </p>
+        </div>
       );
     }
   }

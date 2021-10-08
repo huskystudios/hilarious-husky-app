@@ -119,9 +119,8 @@ return (
         </div>
 </div>
 <div class="flex flex-wrap justify-between">
-<Title title={"Leaderbaord"} />
-<div class="font-semibold">Total minted: {supply}/3000 </div>
-
+<Title title={"Leaderboard"} />
+<Title title={`Total minted: ${supply}/3000`} />
 </div>
 
   

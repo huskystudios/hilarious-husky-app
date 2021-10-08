@@ -2,8 +2,6 @@ import Intro from './Intro'
 import Mint from './Mint';
 import Faq from './faq';
 import Team from './Team';
-import MyCollection from './MyCollection';
-import Jackpot from './Jackpot';
 import List from './List';
 import Verify from "./Verify"
 

@@ -1,4 +1,3 @@
-import Intro from './Intro'
 import { createBrowserHistory } from 'history';
 import {
   BrowserRouter as Router,
@@ -17,9 +16,9 @@ import Verify from './Verify';
 import Team from './Team';
 import NavComp from './Nav';
 import Home from './home';
-import MyCollection from './MyCollection';
 import Jackpot from './Jackpot';
 import Roadmap from './roadmap';
+import Members from "./Members";
 const history = createBrowserHistory();
 
 
@@ -52,6 +51,9 @@ function App() {
                 </Route>
                 <Route path="/jackpot">
                 <Jackpot />
+                </Route>
+                <Route path="/members">
+                <Members />
                 </Route>
                 <Route path="/faq">
                 <Faq />

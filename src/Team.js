@@ -1,8 +1,3 @@
-import { useEffect, useState, useRef } from "react";
-import Button from 'react-bootstrap/Button'
-import { getContent } from './utils/cms';
-import HTML2React from 'html2react'
-import { SocialIcon } from 'react-social-icons';
 import Title from "./title";
 import { Card } from "react-bootstrap";
 import { CardGroup } from "react-bootstrap";

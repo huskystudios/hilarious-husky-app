@@ -18,6 +18,7 @@ const NavComp = ({props}) => {
             <Nav.Link href="/mint/">mint</Nav.Link>
             <Nav.Link href="/jackpot/">jackpot</Nav.Link>
             <Nav.Link href="/roadmap/">roadmap</Nav.Link>
+            <Nav.Link href="/members/">token hodlers</Nav.Link>
             
             </Nav>     
         </Navbar>
@@ -25,7 +26,7 @@ const NavComp = ({props}) => {
         </div>
         <div>
         <a href="/">
-        <img class="hidden md:flex" width={60} src={mobileLogo} />
+        <img class="hidden md:flex" width={60} alt="Logo" src={mobileLogo} />
         </a>
         </div>
     </div>
