@@ -19,6 +19,9 @@ import Home from './home';
 import Jackpot from './Jackpot';
 import Roadmap from './roadmap';
 import Members from "./Members";
+import {firebase} from './initFirebase';
+
+
 const history = createBrowserHistory();
 
 
