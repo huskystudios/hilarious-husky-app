@@ -21,9 +21,12 @@ const Chat = () => {
     const db = getDatabase();
     const timestamp = Date.now()
     const chatData = ref(db, 'messages/' + wallet + timestamp)
+    const messagesEndRef = useRef(null)
 
 
-   
+    const scrollToBottom = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
 
 
     const handleSubmit = (event) => {
@@ -38,20 +41,19 @@ const Chat = () => {
           chat: chatEntry
         });
         setChatText("")
-       
-        
+               
     }
 
 
 
-  useEffect(async()=>{
-    const {address} = await getCurrentWalletConnected();
-    setWallet(address)
+ useEffect(async()=>{
+ 
+ const {address} = await getCurrentWalletConnected();
+ setWallet(address)
+ 
+ const chatsDisplayRef = ref(db, 'messages/');
 
-  const db = getDatabase();
-  const chatsDisplayRef = ref(db, 'messages/');
-
-  onValue(chatsDisplayRef, (snapshot) =>{
+ onValue(chatsDisplayRef, (snapshot) =>{
     
     const obj = snapshot.val();
     Object.entries(obj).forEach(([key, value])=>{
@@ -61,31 +63,33 @@ const Chat = () => {
                       sender: value.sender})
     })
 
-    const chatLog = dataArry.map((items)=>{
+    let chatLog = dataArry.map((items)=>{
 
          return(<>
-    <Chats items={items}/>
+    <Chats key={items.time} items={items}/>
+    <div ref={messagesEndRef} />
         </>)
       })
     
-  
-    
-
-    setData(chatLog)
-
+  setData(chatLog)
+  scrollToBottom()  
   })
-
+  
 
 },[])
   
 return (
   <div>
+   
 <h4>Leave a message for the community</h4>
+<div class="w-full lg:w-1/2 border-2 shadow-lg rounded-xl p-2">
+<div class="h-80 overflow-y-scroll mb-2">
 <ToastContainer>
 {data}
 
 </ToastContainer>
-<br/>
+</div>
+
 
 <Form onSubmit={handleSubmit}>
 <InputGroup className="mb-3">
@@ -102,7 +106,7 @@ return (
     </InputGroup>
   
 </Form>
-   
+</div> 
   </div>
 );
 }
