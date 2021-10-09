@@ -53,7 +53,7 @@ const Socials = (props) => {
       <SocialIcon url="https://discord.gg/bYCs6UMWDS" />
       <SocialIcon url="https://www.instagram.com/hilarious.huskies/" />
       <SocialIcon url="https://www.youtube.com/channel/UCl-0uFCQRv1uQBkscBAVaNQ" />
-      <SocialIcon url="https://github.com/cryptoafrican/hilarious-huskies-app" />
+      <SocialIcon url="https://github.com/cryptoafrican/hilarious-husky-app" />
  
       
       </div>
