@@ -25,8 +25,8 @@ return (
   <Accordion.Item eventKey="2">
     <Accordion.Header>How can I mint one?</Accordion.Header>
     <Accordion.Body>
-    While some were minted in September for giveaways and for the project team, a few others got lucky and minted because I definitely forgot to flip the mint swtich at launch. lol. 
-    These can be minted at the drop by either use this site (click on mint) or you can also interact with the contract on etherscan yourself. 
+    While some were minted in September for giveaways and for the project team, a few others got lucky and minted because I definitely forgot to flip the mint swtich at launch, lol. 
+    These can be minted at the drop by either using this site and clicking on mint, or by interacting with the contract on etherscan yourself. 
     Verified contract &amp; code is available <a href="https://etherscan.io/address/0x6e918a90dcb258353acca3dfdb2a54a5d81c4596#code"><u>here</u></a>. 
     Shoot us an email or get in touch with us on either<a href="https://twitter.com/HuskiesNft" target="_blank" rel="noopener noreferrer">twitter</a> or <a href="https://discord.gg/bYCs6UMWDS" target="_blank" rel="noopener noreferrer">discord </a>if you have any trouble.
     </Accordion.Body>
@@ -50,7 +50,7 @@ return (
 
 </Accordion>
 
-  <p>Cant find what your looking for? As us anything on the Hilarious Huskies <a href="https://discord.gg/bYCs6UMWDS" target="_blank" rel="noopener noreferrer"><u>discord</u></a> server
+  <p>Can't find what your looking for? As us anything on the Hilarious Huskies <a href="https://discord.gg/bYCs6UMWDS" target="_blank" rel="noopener noreferrer"><u>discord</u></a> server
   </p>
 
 </div>
