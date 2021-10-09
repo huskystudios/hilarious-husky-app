@@ -38,20 +38,21 @@ useEffect(() => {
 
   const init = async () => {
     
+    ///get all token holders in one promise, else it takes forever
    let owners = await Promise.all(
 
       Array.from({ length: supply }).map((_, index) => (
         getOwnerData(index)
       )))
 
- 
+ ///map token holders then count occurences 
    let tokenCount = owners.map((item)=>{
 
       let object
       try{
       object = {address: item.address, tokens:countOccurrences(owners, item.address)}
           return(object)
-          
+          ////remove duplicates from holders
    }catch(e){console.log(e)}})
        
         const uniqueArray = tokenCount.filter((thing, index) => {
@@ -60,7 +61,7 @@ useEffect(() => {
             return JSON.stringify(obj) === _thing;
           });
         });
-
+          //sort holders 
         function compare( a, b ) {
           if ( a.tokens < b.tokens){
             return 1;

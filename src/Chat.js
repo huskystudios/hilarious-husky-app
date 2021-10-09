@@ -5,23 +5,50 @@ import { useEffect, useState, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import Form from 'react-bootstrap/Form'
-import Chats from "./Chats";
-import ToastContainer from 'react-bootstrap/ToastContainer'
 import InputGroup from 'react-bootstrap/InputGroup'
+import { timeAgo } from "./utils/dateFunctions";
 
-const Chat = () => {
+const Chat = ({pfp}) => {
  
-    ///Chat App stuff
-   
-    const inputRef = useRef();
-    const [data, setData] = useState()
     let dataArry = []
     const [wallet, setWallet] = useState("")
     const [chatText, setChatText] = useState("")
     const db = getDatabase();
     const timestamp = Date.now()
     const chatData = ref(db, 'messages/' + wallet + timestamp)
+    const chatsDisplayRef = ref(db, 'messages/');
+    const profileImage = `https://huskies.s3.eu-west-2.amazonaws.com/images/${pfp[0]}.png`
+
     const messagesEndRef = useRef(null)
+
+    onValue(chatsDisplayRef, (snapshot) =>{
+    
+      const obj = snapshot.val();
+     
+      Object.entries(obj).forEach(([key, value])=>{
+    
+        dataArry.push({chat:value.chat, 
+                        time:value.timeStamp, 
+                        sender: value.sender,
+                        image: value.image,
+                        tokenid: value.tokenid,
+                      
+                      })
+      })
+    
+      function compare( a, b ) {
+        if ( a.time < b.time){
+          return -1;
+        }
+        if ( a.time > b.time ){
+          return 1;
+        }
+        return 0;
+      }
+      
+      dataArry.sort( compare );
+    
+    })
 
 
     const scrollToBottom = () => {
@@ -29,82 +56,62 @@ const Chat = () => {
     }
 
 
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
       
         event.preventDefault();
        
-        const chatEntry = inputRef.current.value;
+        const chatEntry = chatText;
+        if(chatEntry !=="" ){
+          await set(chatData, {
+            sender: wallet,
+            tokenid:pfp[0],
+            timeStamp: timestamp,
+            chat: chatEntry,
+            image: profileImage,
+            username: null
+          });
+          setChatText("")
+          scrollToBottom()
+        }
        
-        set(chatData, {
-          sender: wallet,
-          timeStamp: timestamp,
-          chat: chatEntry
-        });
-        setChatText("")
+       
 
     }
 
-
+   
 
  useEffect(async()=>{
  
  const {address} = await getCurrentWalletConnected();
  setWallet(address)
- 
- const chatsDisplayRef = ref(db, 'messages/');
-
- onValue(chatsDisplayRef, (snapshot) =>{
-    
-    const obj = snapshot.val();
-    
-    Object.entries(obj).forEach(([key, value])=>{
-
-      dataArry.push({chat:value.chat, 
-                      time:value.timeStamp, 
-                      sender: value.sender})
-    })
-
-    let chatLog = dataArry.map((items)=>{
-
-         return(<>
-    <Chats key={items.time} items={items} />
-    <div ref={messagesEndRef} />
-        </>)
-      })
-    
-  setData(chatLog)
-  scrollToBottom()  
-  })
-  
-
+ scrollToBottom()
 },[])
   
 return (
   <div>
-   
 
-<div class="w-full border-2 shadow-lg rounded-xl bg-white">
-<div class="bg-blue-600 p-2 rounded-xl text-white">
-<h4>Global Hilarious Husky Messageboard</h4>
-</div>
+  
 
-<div class="h-80 overflow-y-scroll mb-2 p-2">
-<ToastContainer>
-{data}
-
-</ToastContainer>
+<div class="border-2 shadow-lg rounded-xl bg-white">
+<div class="h-96 overflow-y-scroll mb-2 p-2">
+{dataArry && dataArry.map((items, index)=>{
+  
+  return(<Chats wallet={wallet} key={items.time + items.sender} items={items} />)
+})}
+<div ref={messagesEndRef} />
 </div>
 
 <div class="p-2">
+
 <Form onSubmit={handleSubmit}>
 <InputGroup className="mb-3">
   
-    <Form.Control size="lg" type="text" placeholder="Enter your message"
+    <Form.Control type="text" placeholder={"start typing..."}
     value={chatText}
-    ref={inputRef}
     onChange={e => setChatText(e.target.value)}    
     />
-    <Button onClick={handleSubmit}>
+    <Button type="submit" disabled={!chatText}>
       Send
     </Button>
 
@@ -119,4 +126,35 @@ return (
   
 export default Chat;
 
+
+const Chats = ({items, wallet}) => {
+ 
+  const d = new Date(items.time)
+  const ta = timeAgo(d)
+  const ts = d.toUTCString();  
+  let auth = false
+  if(items.sender === wallet)
+  {auth = true}
+
+  const messageClass = auth ? 'flex-row-reverse' : 'flex-row';
+  const messageBodyClass = auth ? 'bg-green-500 text-right text-white' : 'bg-gray-100';
+  const imageClass = auth ? 'ml-2' : 'mr-2';
+  
+return (
+  <div className={`px-3 py-2 flex no-wrap items-start ${messageClass}`}>
+  <div>
+    <img className={`block rounded-full object-cover w-10 ${imageClass}`} src={items.image || 'https://i.imgur.com/rFbS5ms.png'} alt="{items.tokenid}'s pfp" />
+  </div>
+  <div className={`block w-80 break-words p-2 rounded-md ${messageBodyClass}`}>
+  <div class="flex flex-wrap items-baseline	space-x-2">
+    <div className="font-semibold">Husky #{items.tokenid}</div>
+    <div className="text-xs">{ta}</div>
+  </div>
+    <div>{items.chat}</div>
+    
+  </div>
+</div>
+
+);
+}
 

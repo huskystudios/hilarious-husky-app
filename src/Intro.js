@@ -42,7 +42,7 @@ return (
           </p>
           <p>
           Your NFT also doubles up as a membership card that will allow you access to enhancements as we hit future project milestones which you can get further information on {" "}
-           <a href="/roadmap/">here.</a>
+           <a href="/members/">here.</a>
           </p>
           
 

@@ -12,9 +12,9 @@ const MyCollection = ({collections}) => {
       <Col key={pup}>
         
          <div key={index}>
-      
+            <div class="flex justify-evenly">
              <img class="rounded-full" src={`https://huskies.s3.eu-west-2.amazonaws.com/images/${pup}.png`} />
-       
+             </div>
              <div class="flex justify-evenly font-bold">
                <a class="no-underline text-center" href={`/huskies/${pup}`}>Hilarious Huskies #{pup}</a></div>
                       

@@ -46,7 +46,7 @@ const Socials = (props) => {
   
   return (
     <>
- <div class="flex flex-wrap justify-between mt-3">
+ <div class="flex flex-wrap justify-between my-5 absolute bottom-0">
    <div class="md:w-1/2">
       <div class="space-x-3 w-full">
       <SocialIcon url="https://twitter.com/HuskiesNft" />

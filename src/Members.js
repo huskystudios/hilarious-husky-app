@@ -5,7 +5,8 @@ import { useEffect, useState} from "react";
 import { Button } from "react-bootstrap";
 import MyCollection from "./MyCollection";
 import Chat from "./Chat"
-
+import { Tab } from "bootstrap";
+import Tabs from 'react-bootstrap/Tabs'
 
 const Members = ({}) => {
 
@@ -45,13 +46,34 @@ const Members = ({}) => {
     )
   }
 
+  function ControlledTabs() {
+    const [key, setKey] = useState('chat');
   
-  const Login = async () => {
-
-
-
+    return (
+      <Tabs
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={(k) => setKey(k)}
+        className="mb-3"
+        
+      >
+        <Tab eventKey="chat" title="Husky Chat">
+        <Chat pfp={collections}/>
+       
+        </Tab>
+        <Tab eventKey="collection" title="My Collection">
+        <MyCollection collections={collections} />
+        </Tab>
+        <Tab eventKey="vote" title="Community Project Voting" disabled>
+  
+        </Tab>
+       
+      </Tabs>
+    );
   }
-
+  
+ 
+  
     useEffect(async () => {
     
 
@@ -78,21 +100,25 @@ const Members = ({}) => {
 
        {auth ? (
        <>
-       <div class="flex flex-wrap p-2">
-           <div class="md:w-1/2">
-           <Chat/>
-           </div>
+       <div class="p-2">
+          
+         
+           
+          <ControlledTabs />
+        
+      
+
+      
+
+       </div>
+      
+
+       </>): (<>
+       <div class=" md:w-1/2">
+       Your HUSK token unlocks a members only area where the community can interact with each other and vote on future projects. Mint or purcahse one on Opensea to access.
+       </div>
        
-       <div class="md:w-1/2">
-       <MyCollection collections={collections} />
-       </div>
-
-      
-
-       </div>
-      
-
-       </>): (<>You dont have any HUSK tokens in this wallet.</>) }      
+       </>) }      
    
 
 ‍
