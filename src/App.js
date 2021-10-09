@@ -41,7 +41,7 @@ function App() {
     </Helmet>
    
     <Router history={history}>
-    <div class="bg-fixed min-h-screen" style={{backgroundImage: `url(${bg})`}}> 
+    <div class="min-h-screen"> 
       <div class="container mx-auto">             
          
 <NavComp />

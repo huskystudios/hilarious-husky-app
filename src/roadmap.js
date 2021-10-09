@@ -16,7 +16,7 @@ return (
             <div class="lg:text-base xl:text-lg pb-2 text">    
               <Title title="Built to last, powered by the community" />
           
-          <p>Comming Soon </p>
+          <p>Once we complete the initial sale, the direction of the project will be a community decision.  </p>
                   
              </div>
 

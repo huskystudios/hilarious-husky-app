@@ -13,6 +13,9 @@
     a {
       @apply text-blue-900 underline;
     }
+    a {
+      @apply dark:text-white;
+    }
     p {
         @apply lg:text-base xl:text-lg pb-2;
       }
