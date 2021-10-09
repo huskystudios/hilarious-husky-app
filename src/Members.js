@@ -70,17 +70,27 @@ const Members = ({}) => {
   
      return (
          <>
-  <Title title={"Token Holders"} />
+         <div class="flex justify-between">
+         <Title title={"Token Holders - members only area"} />
+         {auth ? (<>logged in</>) : (<>no husky no access</>)}
+         </div>
+  
 
-       {auth ? (<>logged in
+       {auth ? (
+       <>
+       <div class="flex flex-wrap p-2">
+           <div class="md:w-1/2">
+           <Chat/>
+           </div>
        
-       <Chat/>
-        <br/>
-     
-       <div class="pt-4">
+       <div class="md:w-1/2">
+       <MyCollection collections={collections} />
+       </div>
 
-<MyCollection collections={collections} />
-</div>
+      
+
+       </div>
+      
 
        </>): (<>You dont have any HUSK tokens in this wallet.</>) }      
    

@@ -20,21 +20,16 @@ const Chats = ({items, wallet}) => {
       const d = new Date(items.time)
       const ts = d.toUTCString();  
      
-      let variantString = "light"
-      if(items.sender === wallet){
-        variantString="dark"
-      }
-
-      console.log(items.sender, "1", wallet, "2")
+   
 
 return (
-<Toast bg={variantString} show={showA} onClose={toggleShowA}>
-          <Toast.Header>            
+<div class="bg-white border-1 shadow rounded w-80">
+            <div class="bg-gray-100 p-2 flex justify-around">
             <strong className="me-auto">{sender}</strong>
-            <small>{ts}</small>
-          </Toast.Header>
-          <Toast.Body>{items.chat}</Toast.Body>
-        </Toast>
+            <span class="text-xs">{ts}</span>
+            </div>
+          <div class="p-2">{items.chat}</div>
+        </div>
 
 );
 }
