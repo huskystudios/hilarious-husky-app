@@ -249,7 +249,7 @@ address &&(
           </Alert>
         )}
         </div>
-        <Title title={"My Collection"} />
+        
 <ShowCollection />
 <div class="pt-4">
 {showCollectionToggle &&

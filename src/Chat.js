@@ -41,7 +41,7 @@ const Chat = () => {
           chat: chatEntry
         });
         setChatText("")
-               
+
     }
 
 
@@ -56,6 +56,7 @@ const Chat = () => {
  onValue(chatsDisplayRef, (snapshot) =>{
     
     const obj = snapshot.val();
+    
     Object.entries(obj).forEach(([key, value])=>{
 
       dataArry.push({chat:value.chat, 
@@ -66,7 +67,7 @@ const Chat = () => {
     let chatLog = dataArry.map((items)=>{
 
          return(<>
-    <Chats key={items.time} items={items}/>
+    <Chats key={items.time} items={items} />
     <div ref={messagesEndRef} />
         </>)
       })
@@ -81,16 +82,20 @@ const Chat = () => {
 return (
   <div>
    
-<h4>Leave a message for the community</h4>
-<div class="w-full lg:w-1/2 border-2 shadow-lg rounded-xl p-2">
-<div class="h-80 overflow-y-scroll mb-2">
+
+<div class="w-full border-2 shadow-lg rounded-xl bg-white">
+<div class="bg-blue-600 p-2 rounded-xl text-white">
+<h4>Global Hilarious Husky Messageboard</h4>
+</div>
+
+<div class="h-80 overflow-y-scroll mb-2 p-2">
 <ToastContainer>
 {data}
 
 </ToastContainer>
 </div>
 
-
+<div class="p-2">
 <Form onSubmit={handleSubmit}>
 <InputGroup className="mb-3">
   
@@ -106,6 +111,7 @@ return (
     </InputGroup>
   
 </Form>
+</div>
 </div> 
   </div>
 );
