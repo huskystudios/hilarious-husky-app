@@ -8,11 +8,14 @@ const NavComp = ({props}) => {
 
   return (
       <>
-      <div class="pt-2 flex justify-end">
+      <div class="pt-2 flex justify-between ">
+          <div class="text-3xl font-bold break-words w-1/2">
+              Hilarious Huskies
+          </div>
    
    <ConnectWallet />
    </div>
-    <div class="flex justify-between space-x-2 py-3">    
+    <div class="flex justify-between py-1">    
     <div class="flex space-x-2 md:flex-row-reverse	">
       
         <div class="flex flex-wrap space-x-2">

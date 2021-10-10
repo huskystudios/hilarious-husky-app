@@ -15,7 +15,7 @@ const MyCollection = ({collections}) => {
             <div class="flex justify-evenly">
              <img class="rounded-full" src={`https://huskies.s3.eu-west-2.amazonaws.com/images/${pup}.png`} />
              </div>
-             <div class="flex justify-evenly font-bold">
+             <div class="flex justify-evenly font-bold pt-2">
                <a class="no-underline text-center" href={`/huskies/${pup}`}>Hilarious Huskies #{pup}</a></div>
                       
         </div>

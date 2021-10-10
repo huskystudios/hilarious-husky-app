@@ -1,23 +1,22 @@
-
-import Title from "./title";
-import { tokensByOwner, getCurrentWalletConnected } from "./utils/interact";
 import { useEffect, useState, useRef } from "react";
 import { Button } from "react-bootstrap";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue, query, orderByValue, push, orderByChild, limitToLast} from "firebase/database";
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 import { timeAgo } from "./utils/dateFunctions";
 
-const Chat = ({pfp}) => {
+const Chat = ({pfp, wallet}) => {
  
     let dataArry = []
-    const [wallet, setWallet] = useState("")
+    
     const [chatText, setChatText] = useState("")
     const db = getDatabase();
     const timestamp = Date.now()
-    const chatData = ref(db, 'messages/' + wallet + timestamp)
-    const chatsDisplayRef = ref(db, 'messages/');
+   
+
     const profileImage = `https://huskies.s3.eu-west-2.amazonaws.com/images/${pfp[0]}.png`
+    const chatsDisplayRef = query(ref(db, 'messages'), orderByChild('timeStamp'), limitToLast(100));
+
 
     const messagesEndRef = useRef(null)
 
@@ -31,11 +30,10 @@ const Chat = ({pfp}) => {
                         time:value.timeStamp, 
                         sender: value.sender,
                         image: value.image,
-                        tokenid: value.tokenid,
-                      
+                        tokenid: value.tokenid,                      
                       })
       })
-    
+    /*
       function compare( a, b ) {
         if ( a.time < b.time){
           return -1;
@@ -46,24 +44,25 @@ const Chat = ({pfp}) => {
         return 0;
       }
       
-      dataArry.sort( compare );
+      dataArry.sort( compare );*/
     
     })
-
+    
 
     const scrollToBottom = () => {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
 
 
-
-    const handleSubmit = async (event) => {
+    const sendMessage = async (event) => {
       
         event.preventDefault();
-       
+        const chatDataRef = ref(db, 'messages/')
+        const newChatDataRef = push(chatDataRef);
+        
         const chatEntry = chatText;
         if(chatEntry !=="" ){
-          await set(chatData, {
+          await set(newChatDataRef, {
             sender: wallet,
             tokenid:pfp[0],
             timeStamp: timestamp,
@@ -82,29 +81,23 @@ const Chat = ({pfp}) => {
    
 
  useEffect(async()=>{
- 
- const {address} = await getCurrentWalletConnected();
- setWallet(address)
+
  scrollToBottom()
-},[])
+},[chatsDisplayRef])
   
 return (
-  <div>
-
-  
-
-<div class="border-2 shadow-lg rounded-xl bg-white">
-<div class="h-96 overflow-y-scroll mb-2 p-2">
-{dataArry && dataArry.map((items, index)=>{
-  
-  return(<Chats wallet={wallet} key={items.time + items.sender} items={items} />)
-})}
-<div ref={messagesEndRef} />
-</div>
+  <div> 
+      <div class="border-2 shadow-lg rounded-xl bg-white">
+          
+          <div class="h-96 overflow-y-scroll mb-2 p-2">
+              {dataArry && dataArry.map((items, index)=>{
+                  return(<Chats wallet={wallet} key={items.time + items.sender} items={items} />)})}
+                        <div ref={messagesEndRef} />
+            </div>
 
 <div class="p-2">
 
-<Form onSubmit={handleSubmit}>
+<Form onSubmit={sendMessage}>
 <InputGroup className="mb-3">
   
     <Form.Control type="text" placeholder={"start typing..."}
@@ -131,7 +124,6 @@ const Chats = ({items, wallet}) => {
  
   const d = new Date(items.time)
   const ta = timeAgo(d)
-  const ts = d.toUTCString();  
   let auth = false
   if(items.sender === wallet)
   {auth = true}

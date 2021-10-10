@@ -58,7 +58,7 @@ const Members = ({}) => {
         
       >
         <Tab eventKey="chat" title="Husky Chat">
-        <Chat pfp={collections}/>
+        <Chat pfp={collections} wallet={wallet}/>
        
         </Tab>
         <Tab eventKey="collection" title="My Collection">
@@ -93,8 +93,8 @@ const Members = ({}) => {
      return (
          <>
          <div class="flex justify-between">
-         <Title title={"Token Holders - members only area"} />
-         {auth ? (<>logged in</>) : (<>no husky no access</>)}
+         <Title title={"Token Holders"} />
+        
          </div>
   
 
@@ -102,14 +102,8 @@ const Members = ({}) => {
        <>
        <div class="p-2">
           
-         
-           
           <ControlledTabs />
         
-      
-
-      
-
        </div>
       
 

@@ -66,6 +66,7 @@ const Socials = (props) => {
             <Nav.Link href="/provenance/">Provenance</Nav.Link>
             </Nav>     
         </Navbar>
+        © 2021 Husky Studios
     </div>
       
       {/**
