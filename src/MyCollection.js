@@ -1,17 +1,23 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Title from './title';
+import { Button } from 'react-bootstrap';
 
 const MyCollection = ({collections}) => {
 
      return (
     <div class="min-h-full p-2">
-  <Title title={"My Collection"} />
+     <div class="flex justify-between">
+     <Title title={"My Collection"} />
+     <div><Button onClick={(e) => {e.preventDefault();window.location.href=`/mint/`;}} >Add more</Button></div>
+     </div>
+  
+  
     <Row xs={2} sm={3} md={4} className="g-4">
     {collections.length > 0 && collections.map((pup, index) => (
       <Col key={pup}>
         
-         <div key={index}>
+         <div class="w-4/5" key={index}>
             <div class="flex justify-evenly">
              <img class="rounded-full" src={`https://huskies.s3.eu-west-2.amazonaws.com/images/${pup}.png`} />
              </div>

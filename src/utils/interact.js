@@ -38,6 +38,11 @@ export const getTokenSupply = async () => {
   return(supply)
   }
 
+  export const isSaleActive = async () => {
+    var sale = nftContract.methods.isSaleActive().call();
+    return(sale)
+    }
+
 export const getEthPrice = async () => {
   var price = api.stats.ethprice();
   return(price)

@@ -78,7 +78,7 @@ const Members = ({}) => {
     return(
             
       <Button variant="dark" disabled>
-       You don't have any huskies yetm or you have not connected to your wallet
+       You don't own any HUSKY's
     </Button>
     )
   }
@@ -102,7 +102,7 @@ const Members = ({}) => {
         <MyCollection collections={collections} />
         </Tab>
         <Tab eventKey="jackpot" title="Jackpot">
-        Comming Soon
+        Winners will be announced here. 
         </Tab>
         <Tab eventKey="vote" title="Community Project Voting" disabled>
   
@@ -147,6 +147,13 @@ const Members = ({}) => {
        <div class="p-2">
        {showCollectionToggle &&
           <ControlledTabs />}
+    {!showCollectionToggle &&
+           <div class=" md:w-1/2">
+           Your HUSK token unlocks a members only area where the community can interact with each other and vote on future projects. Click "login" on 
+           the top right corner to access this feature.
+           </div>
+           }
+ 
         
        </div>
       

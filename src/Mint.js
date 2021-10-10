@@ -1,7 +1,7 @@
 import { useEffect, useState} from "react";
 import {
   getCurrentWalletConnected, //import here
-  mintNFT, getTokenSupply, getEthPrice, getContractPrice, tokensByOwner
+  mintNFT, getTokenSupply, getEthPrice, isSaleActive, getContractPrice, tokensByOwner
 } from "./utils/interact.js";
 import Button from 'react-bootstrap/Button'
 import { getGasPrice } from "./utils/interact.js";
@@ -24,6 +24,7 @@ const Mint = (props) => {
   const [txSuccessMsg, setTxSuccessMsg] = useState();
   const [tokenSupply, setTokenSupply] = useState();
   const [isMetamask, setIsMetamask] = useState(true);
+  const [activeSale, setActiveSale] = useState(true);
   const [gasPrice, setGasPrice] = useState(0);
   const [collections, setCollection] = useState([]);
   const [showCollectionToggle, setShowCollectionToggle] = useState(false);
@@ -56,6 +57,10 @@ address &&(
     getContractPrice().then((price)=>{      
     setCost(price);
     })
+
+    isSaleActive().then((sale)=>{      
+      setActiveSale(sale);
+      })
 
       
    
@@ -120,7 +125,10 @@ address &&(
 
 
   const onMintPressed = async (event) => { //TODO: implement
-
+    if(!activeSale){
+      setStatus("Minting not open yet")
+      return
+    }
     if(qty > 0){
       setStatus()
     event.preventDefault();
@@ -149,7 +157,9 @@ address &&(
 
     if(txProgress === 0)
     return (
-      walletAddress && (<Button variant="dark" onClick={onMintPressed}>
+
+      walletAddress && (      
+      <Button variant="dark" onClick={onMintPressed}>
       Mint! 
      </Button> ) 
         
@@ -195,7 +205,8 @@ address &&(
       <div class="flex flex-wrap justify-between">
 
 <Title title={"Mint your Hilarious Huskies"} />
-<p><strong>Minting starts on October 15th, 2021</strong></p>
+{!activeSale && (
+<p><strong>Minting starts on October 15th, 2021</strong></p>)}
 
 
 </div>
