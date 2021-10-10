@@ -7,46 +7,17 @@ import { timeAgo } from "./utils/dateFunctions";
 
 const Chat = ({pfp, wallet}) => {
  
-    let dataArry = []
-    
     const [chatText, setChatText] = useState("")
+    const [chatData, setChatData] = useState("")
+
+
     const db = getDatabase();
     const timestamp = Date.now()
    
-
     const profileImage = `https://huskies.s3.eu-west-2.amazonaws.com/images/${pfp[0]}.png`
     const chatsDisplayRef = query(ref(db, 'messages'), orderByChild('timeStamp'), limitToLast(100));
-
-
+    
     const messagesEndRef = useRef(null)
-
-    onValue(chatsDisplayRef, (snapshot) =>{
-    
-      const obj = snapshot.val();
-     
-      Object.entries(obj).forEach(([key, value])=>{
-    
-        dataArry.push({chat:value.chat, 
-                        time:value.timeStamp, 
-                        sender: value.sender,
-                        image: value.image,
-                        tokenid: value.tokenid,                      
-                      })
-      })
-    /*
-      function compare( a, b ) {
-        if ( a.time < b.time){
-          return -1;
-        }
-        if ( a.time > b.time ){
-          return 1;
-        }
-        return 0;
-      }
-      
-      dataArry.sort( compare );*/
-    
-    })
     
 
     const scrollToBottom = () => {
@@ -80,17 +51,40 @@ const Chat = ({pfp, wallet}) => {
 
    
 
- useEffect(async()=>{
+ useEffect(()=>{
+  const loadTwice = () => {
 
- scrollToBottom()
-},[chatsDisplayRef])
+    onValue(chatsDisplayRef, (snapshot) =>{
+     const dataArry = []
+     const obj = snapshot.val();
+     
+      Object.entries(obj).forEach(([key, value])=>{
+    
+        dataArry.push({chat:value.chat, 
+                        time:value.timeStamp, 
+                        sender: value.sender,
+                        image: value.image,
+                        tokenid: value.tokenid,                      
+                      })
+                     
+      });
+      setChatData(dataArry)
+      scrollToBottom()
+    })
+   
+    
+  }
+  loadTwice()
+
+
+},[db])
   
 return (
   <div> 
       <div class="border-2 shadow-lg rounded-xl bg-white">
           
           <div class="h-96 overflow-y-scroll mb-2 p-2">
-              {dataArry && dataArry.map((items, index)=>{
+              {chatData && chatData.map((items, index)=>{
                   return(<Chats wallet={wallet} key={items.time + items.sender} items={items} />)})}
                         <div ref={messagesEndRef} />
             </div>
