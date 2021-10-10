@@ -1,25 +1,39 @@
 import { useEffect, useState, useRef } from "react";
 import { Button } from "react-bootstrap";
-import { getDatabase, ref, set, onValue, query, orderByValue, push, orderByChild, limitToLast} from "firebase/database";
+import { getDatabase, ref, set, onValue, query, get,child, orderByValue, push, orderByChild, limitToLast} from "firebase/database";
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 import { timeAgo } from "./utils/dateFunctions";
 
-const Chat = ({pfp, wallet}) => {
+const Chat = ({pfp, wallet, user}) => {
  
     const [chatText, setChatText] = useState("")
     const [chatData, setChatData] = useState("")
-
+  
+console.log(pfp, wallet, user)
 
     const db = getDatabase();
+    const dbRef = ref(getDatabase());
     const timestamp = Date.now()
    
     const profileImage = `https://huskies.s3.eu-west-2.amazonaws.com/images/${pfp[0]}.png`
     const chatsDisplayRef = query(ref(db, 'messages'), orderByChild('timeStamp'), limitToLast(100));
-    
-    const messagesEndRef = useRef(null)
-    
+  
 
+    const messagesEndRef = useRef(null)
+
+    /*
+    get(child(dbRef, `members/${wallet}`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        setUserData(snapshot.val());
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    })
+    */
+    
     const scrollToBottom = () => {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
@@ -39,7 +53,7 @@ const Chat = ({pfp, wallet}) => {
             timeStamp: timestamp,
             chat: chatEntry,
             image: profileImage,
-            username: null
+            username: user
           });
           setChatText("")
           scrollToBottom()
@@ -49,9 +63,7 @@ const Chat = ({pfp, wallet}) => {
 
     }
 
-   
-
- useEffect(()=>{
+useEffect(()=>{
   const loadTwice = () => {
 
     onValue(chatsDisplayRef, (snapshot) =>{
@@ -64,7 +76,8 @@ const Chat = ({pfp, wallet}) => {
                         time:value.timeStamp, 
                         sender: value.sender,
                         image: value.image,
-                        tokenid: value.tokenid,                      
+                        tokenid: value.tokenid,      
+                        username: value.username                
                       })
                      
       });
@@ -80,7 +93,7 @@ const Chat = ({pfp, wallet}) => {
 },[db])
   
 return (
-  <div> 
+  <div class="w-7/8 mx-auto"> 
       <div class="border-2 shadow-lg rounded-xl bg-white">
           
           <div class="h-96 overflow-y-scroll mb-2 p-2">
@@ -125,6 +138,7 @@ const Chats = ({items, wallet}) => {
   const messageClass = auth ? 'flex-row-reverse' : 'flex-row';
   const messageBodyClass = auth ? 'bg-green-500 text-right text-white' : 'bg-gray-100';
   const imageClass = auth ? 'ml-2' : 'mr-2';
+  let nickname = items.username ? items.username : `Husky #${items.tokenid}`
   
 return (
   <div className={`px-3 py-2 flex no-wrap items-start ${messageClass}`}>
@@ -133,7 +147,7 @@ return (
   </div>
   <div className={`block w-80 break-words p-2 rounded-md ${messageBodyClass}`}>
   <div class="flex flex-wrap items-baseline	space-x-2">
-    <div className="font-semibold">Husky #{items.tokenid}</div>
+    <div className="font-semibold">{nickname}</div>
     <div className="text-xs">{ta}</div>
   </div>
     <div>{items.chat}</div>
