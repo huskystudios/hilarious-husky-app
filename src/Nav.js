@@ -16,7 +16,7 @@ const NavComp = ({props}) => {
    <ConnectWallet />
    </div>
     <div class="flex justify-between py-1">    
-    <div class="flex space-x-2 md:flex-row-reverse	">
+    <div class="flex md:flex-row-reverse	">
       
         <div class="flex flex-wrap space-x-2">
         

@@ -9,15 +9,15 @@ const Chat = ({pfp, wallet, user}) => {
  
     const [chatText, setChatText] = useState("")
     const [chatData, setChatData] = useState("")
+    const [isTyping, setIsTyping] = useState()
   
-console.log(pfp, wallet, user)
-
     const db = getDatabase();
     const dbRef = ref(getDatabase());
     const timestamp = Date.now()
    
     const profileImage = `https://huskies.s3.eu-west-2.amazonaws.com/images/${pfp[0]}.png`
     const chatsDisplayRef = query(ref(db, 'messages'), orderByChild('timeStamp'), limitToLast(100));
+    const isTypingRef = query(ref(db, 'isTyping'), orderByChild('timeStamp'), limitToLast(1));
   
 
     const messagesEndRef = useRef(null)
@@ -37,6 +37,21 @@ console.log(pfp, wallet, user)
     const scrollToBottom = () => {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
+
+    const typing = async (e) => {
+      setChatText(e.target.value)  
+       e.preventDefault();
+      const chatDataRef = ref(db, 'isTyping/')
+      const newChatDataRef = push(chatDataRef);
+      
+      
+        await set(newChatDataRef, {
+          timeStamp: timestamp,
+          username: user ? user : `Husky #${pfp[0]}`
+        });
+      
+
+  }
 
 
     const sendMessage = async (event) => {
@@ -91,15 +106,50 @@ useEffect(()=>{
 
 
 },[db])
+
+useEffect(()=>{
+  const loadOnce = () => {
+
+    onValue(isTypingRef, (snapshot) =>{
+     const dataArry = []
+     const obj = snapshot.val();
+     
+      Object.entries(obj).forEach(([key, value])=>{
+    
+        dataArry.push({time:value.timeStamp, 
+                        username: value.username                
+                      })
+                     
+      });
+      setIsTyping(dataArry)
+      
+    })
+   
+    
+  }
+  loadOnce()
+
+
+},[db])
   
 return (
+<>
+
+
+
   <div class="w-7/8 mx-auto"> 
+ 
       <div class="border-2 shadow-lg rounded-xl bg-white">
           
           <div class="h-96 overflow-y-scroll mb-2 p-2">
               {chatData && chatData.map((items, index)=>{
                   return(<Chats wallet={wallet} key={items.time + items.sender} items={items} />)})}
                         <div ref={messagesEndRef} />
+            </div>
+
+            <div class="animate-pulse pl-3 flex flex-wrap space-x-2">
+            {isTyping && isTyping.map((items, index)=>{
+                return(<div key={index} class="text-xs">{items.username} is typing...</ div>)})}           
             </div>
 
 <div class="p-2">
@@ -109,7 +159,7 @@ return (
   
     <Form.Control type="text" placeholder={"start typing..."}
     value={chatText}
-    onChange={e => setChatText(e.target.value)}    
+    onChange={e => typing(e)}    
     />
     <Button type="submit" disabled={!chatText}>
       Send
@@ -121,6 +171,7 @@ return (
 </div>
 </div> 
   </div>
+  </>
 );
 }
   
@@ -136,7 +187,7 @@ const Chats = ({items, wallet}) => {
   {auth = true}
 
   const messageClass = auth ? 'flex-row-reverse' : 'flex-row';
-  const messageBodyClass = auth ? 'bg-green-500 text-right text-white' : 'bg-gray-100';
+  const messageBodyClass = auth ? 'bg-green-500 text-white' : 'bg-gray-100';
   const imageClass = auth ? 'ml-2' : 'mr-2';
   let nickname = items.username ? items.username : `Husky #${items.tokenid}`
   
