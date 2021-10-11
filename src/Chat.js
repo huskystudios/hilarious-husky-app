@@ -17,7 +17,7 @@ const Chat = ({pfp, wallet, user}) => {
    
     const profileImage = `https://huskies.s3.eu-west-2.amazonaws.com/images/${pfp[0]}.png`
     const chatsDisplayRef = query(ref(db, 'messages'), orderByChild('timeStamp'), limitToLast(100));
-    const isTypingRef = query(ref(db, 'isTyping'), orderByChild('timeStamp'), limitToLast(1));
+    const isTypingRef = query(ref(db, 'isTyping'), );
   
 
     const messagesEndRef = useRef(null)
@@ -34,22 +34,36 @@ const Chat = ({pfp, wallet, user}) => {
     })
     */
     
-    const scrollToBottom = () => {
+    const scrollToBottom = async () => {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
+
+    const typingDb = async (typingBool) => {
+
+      const typingDataRef = ref(db, 'isTyping/' + wallet)
+      
+      await set(typingDataRef, {
+       typing: typingBool,
+       username: user ? user : `Husky #${pfp[0]}`
+     })
+
+    }
+
 
     const typing = async (e) => {
       setChatText(e.target.value)  
        e.preventDefault();
-      const chatDataRef = ref(db, 'isTyping/')
-      const newChatDataRef = push(chatDataRef);
+
+       const text = e.target.value
       
       
-        await set(newChatDataRef, {
-          timeStamp: timestamp,
-          username: user ? user : `Husky #${pfp[0]}`
-        });
-      
+      if(text.length >2){
+        
+        typingDb(true)
+       }else{
+        
+        typingDb(false)
+       }             
 
   }
 
@@ -70,10 +84,11 @@ const Chat = ({pfp, wallet, user}) => {
             image: profileImage,
             username: user
           });
+         
           setChatText("")
+          typingDb(false)
           scrollToBottom()
-        }
-       
+        }     
        
 
     }
@@ -116,7 +131,7 @@ useEffect(()=>{
      
       Object.entries(obj).forEach(([key, value])=>{
     
-        dataArry.push({time:value.timeStamp, 
+        dataArry.push({typing: value.typing, 
                         username: value.username                
                       })
                      
@@ -131,6 +146,9 @@ useEffect(()=>{
 
 
 },[db])
+
+
+
   
 return (
 <>
@@ -149,6 +167,7 @@ return (
 
             <div class="animate-pulse pl-3 flex flex-wrap space-x-2">
             {isTyping && isTyping.map((items, index)=>{
+              if(items.typing)
                 return(<div key={index} class="text-xs">{items.username} is typing...</ div>)})}           
             </div>
 
