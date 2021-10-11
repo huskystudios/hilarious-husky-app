@@ -24,7 +24,7 @@ return (
 
         
         <div class="sm:w-full lg:w-1/2 px-2">
-          <div class="flex flex-wrap">
+          <div class="flex flex-wrap items-center">
 
               <div class="md:hidden">
                   <div class="flex flex-wrap content-start">
@@ -32,7 +32,7 @@ return (
                   </div>
             </div>
             <div class="w-1/2 pl-3 md:pl-0">
-            <h1 class="text-6xl md:text-6xl xl:text-9xl font-bold">Hilarious Huskies</h1>
+            <h1 class="text-5xl md:text-6xl xl:text-9xl font-bold">Hilarious Huskies</h1>
             </div>
          
           </div>

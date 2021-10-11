@@ -19,9 +19,7 @@ const Mint = (props) => {
   const [price, setPrice] = useState(qty * cost);
   const [ethprice, setEthPrice] = useState(0);
   const [txProgress, setTxProgress] = useState(0);
-  const [txStatus, setTxStatus] = useState("");
   const [txIntervalId, setTxIntervalId] = useState();
-  const [txSuccessMsg, setTxSuccessMsg] = useState();
   const [tokenSupply, setTokenSupply] = useState();
   const [isMetamask, setIsMetamask] = useState(true);
   const [activeSale, setActiveSale] = useState(true);
@@ -126,7 +124,7 @@ address &&(
 
   const onMintPressed = async (event) => { //TODO: implement
     if(!activeSale){
-      setStatus("Minting not open yet")
+      setStatus("Minting not open yet. Come back on the 15th of October")
       return
     }
     if(qty > 0){
