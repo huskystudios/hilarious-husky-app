@@ -7,9 +7,9 @@ import ConnectWallet from './ConnectWallet';
 const NavComp = ({props}) => {
 
   return (
-      <>
-      <div class="pt-2 flex justify-between ">
-          <div class="text-3xl font-bold break-words w-1/2">
+      <div class="pb-3">
+      <div class="py-2 flex justify-between ">
+          <div class="text-2xl md:text-3xl font-bold break-words w-1/2">
               Hilarious Huskies
           </div>
    
@@ -33,14 +33,14 @@ const NavComp = ({props}) => {
         </div>
         <div>
         <a href="/">
-        <img class="hidden md:flex" width={60} alt="Logo" src={mobileLogo} />
+        <img class="hidden md:flex rounded-full" width={60} alt="Logo" src={mobileLogo} />
         </a>
         </div>
     </div>
     
     
     </div>
-    </>
+    </div>
 )}
 
 export default NavComp;
