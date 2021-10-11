@@ -203,8 +203,8 @@ address &&(
       <div class="flex flex-wrap justify-between">
 
 <Title title={"Mint your Hilarious Huskies"} />
-{!activeSale && (
-<p><strong>Minting starts on October 15th, 2021</strong></p>)}
+{!activeSale ? (
+<p><strong>Minting starts on October 15th, 2021</strong></p>) : (<strong>{cost} ETH </strong>)}
 
 
 </div>
