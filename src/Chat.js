@@ -40,8 +40,7 @@ const Chat = ({pfp, wallet, user}) => {
 
     const typingDb = async (typingBool) => {
 
-      const typingDataRef = ref(db, 'isTyping/' + wallet)
-      
+      const typingDataRef = ref(db, 'isTyping/' + wallet)      
       await set(typingDataRef, {
        typing: typingBool,
        username: user ? user : `Husky #${pfp[0]}`
@@ -53,10 +52,8 @@ const Chat = ({pfp, wallet, user}) => {
     const typing = async (e) => {
       setChatText(e.target.value)  
        e.preventDefault();
-
        const text = e.target.value
-      
-      
+            
       if(text.length >2){
         
         typingDb(true)
@@ -65,9 +62,11 @@ const Chat = ({pfp, wallet, user}) => {
         typingDb(false)
        }             
 
+       
+
   }
 
-
+  setTimeout(function() { typingDb(false); }, 5000)
     const sendMessage = async (event) => {
       
         event.preventDefault();
@@ -93,7 +92,7 @@ const Chat = ({pfp, wallet, user}) => {
 
     }
 
-useEffect(()=>{
+    useEffect(()=>{
   const loadTwice = () => {
 
     onValue(chatsDisplayRef, (snapshot) =>{
