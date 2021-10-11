@@ -66,7 +66,8 @@ const Chat = ({pfp, wallet, user}) => {
 
   }
 
-  setTimeout(function() { typingDb(false); }, 5000)
+  ///setTimeout(function() { typingDb(false); }, 5000)
+
     const sendMessage = async (event) => {
       
         event.preventDefault();
@@ -154,7 +155,7 @@ return (
 
 
 
-  <div class="w-7/8 mx-auto"> 
+  <div class="lg:w-3/4 mx-auto"> 
  
       <div class="border-2 shadow-lg rounded-xl bg-white">
           
