@@ -6,6 +6,8 @@ import {
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 import MyCollection from "./MyCollection.js";
+import { analytics } from "./initFirebase.js";
+import { logEvent } from "firebase/analytics";
 
 import Title from "./title.js";
 const Mint = (props) => {
@@ -122,6 +124,7 @@ address &&(
 
 
   const onMintPressed = async (event) => { //TODO: implement
+    logEvent(analytics, 'button_click', { name: 'mint_pressed'});
     if(!activeSale){
       setStatus("Minting not open yet. Come back on the 15th of October")
       return

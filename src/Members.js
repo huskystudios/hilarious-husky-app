@@ -9,6 +9,9 @@ import { Tab } from "bootstrap";
 import Tabs from 'react-bootstrap/Tabs'
 import { getDatabase, ref, set, onValue, query, orderByValue, push, orderByChild, limitToLast} from "firebase/database";
 import { Helmet } from "react-helmet";
+import { analytics } from "./initFirebase.js";
+import { logEvent } from "firebase/analytics";
+
 const Members = ({}) => {
 
     const [auth, setAuth] = useState(false)
@@ -31,6 +34,7 @@ const Members = ({}) => {
   }
 
   const login = async (event) => {
+    logEvent(analytics, 'button_click', { name: 'login'});
     event.preventDefault();
     const db = getDatabase();
     const timestamp = Date.now()

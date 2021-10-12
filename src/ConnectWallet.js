@@ -3,8 +3,10 @@ import {
   getCurrentWalletConnected, //import here
   connectWallet, 
 } from "./utils/interact.js";
-
+import { analytics } from "./initFirebase.js";
+import { logEvent } from "firebase/analytics";
 import Button from 'react-bootstrap/Button'
+
 const ConnectWallet = ({nav}) => {
 
   //State variables
@@ -28,6 +30,8 @@ const connectWalletPressed = async () => {
   const walletResponse = await connectWallet();
   setStatus(walletResponse.status);
   setWallet(walletResponse.address);
+  logEvent(analytics, 'button_click', { name: 'connect_wallet'});
+  
 };
 
 function addWalletListener() {
