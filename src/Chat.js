@@ -43,7 +43,8 @@ const Chat = ({pfp, wallet, user}) => {
       const typingDataRef = ref(db, 'isTyping/' + wallet)      
       await set(typingDataRef, {
        typing: typingBool,
-       username: user ? user : `Husky #${pfp[0]}`
+       username: user ? user : `Husky #${pfp[0]}`,
+       tokenid:pfp[0],
      })
 
     }

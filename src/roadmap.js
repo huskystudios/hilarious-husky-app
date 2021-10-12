@@ -28,7 +28,7 @@ We want to hit 100% of what we set out to do, so we will be calling on the commu
 <strong>Phase One 2021</strong>
 <li>Deliver 3000 new-born pups to their new owners</li>
 <li>Launch Husky Chat - a messaging tool that will allow HUSK holders to speak with and engage other holders directly through the Hilarious Huskies web app. </li>
-<li>Jackpot – 16% of all total sales from the mint will be set aside for the jackpot which could potentially be valued at around 12 ETH. Four winners will be announced after the initial mint.</li>
+<li>Prizes – 16% of all total sales from the mint will be set aside for community prizes which could potentially be valued at around 12 ETH. Four winners will be announced after the initial mint.</li>
 <li>Listings with Rarity.tools and Rarity Sniper</li>
 <br/>
 <strong>Phase Two 2022+</strong>

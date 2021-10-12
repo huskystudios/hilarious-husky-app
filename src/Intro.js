@@ -45,14 +45,13 @@ return (
           <p>Hilarious Huskies is an NFT collection inspired by Siberian Huskys which are loyal, friendly, and plagued with wanderlust. This collection is a tribute to our furry friends. 
           </p>
           <p>
-          Minting <strong>more than one</strong> of this NFT enters you into a jackpot where you can win up to <strong>6.4 ETH</strong> by owning more than 15 huskies.
-          {" "}Max mint per wallet is 20. <a href="/jackpot/">Check out the Jackpot here</a>
+          Minting <strong>more than one</strong> of this NFT enters you into a lucky draw where you can win up to <strong>6.4 ETH</strong> by owning more than 15 huskies.
+          {" "}Max mint per wallet is 20. <a href="/prizes/">Check out all the prizes here. </a>
           </p>
           <p>
           Your NFT also doubles up as a membership card that will allow you access to enhancements as we hit future project milestones which you can get further information on {" "}
            <a href="/members/">here.</a>
-          </p>
-          
+          </p>        
 
           
           <p>Follow us on <a href="https://twitter.com/HuskiesNft" target="_blank" rel="noopener noreferrer"><u>twitter</u></a> {" "} 

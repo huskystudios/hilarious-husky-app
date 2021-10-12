@@ -52,7 +52,7 @@ function App() {
                 <Route path="/huskies">
                 <Huskies />
                 </Route>
-                <Route path="/jackpot">
+                <Route path="/prizes">
                 <Jackpot />
                 </Route>
                 <Route path="/members">

@@ -24,7 +24,7 @@ const NavComp = ({props}) => {
             <Nav>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/mint/">Mint</Nav.Link>
-            <Nav.Link href="/jackpot/">Jackpot</Nav.Link>
+            <Nav.Link href="/prizes/">Community Prizes</Nav.Link>
             <Nav.Link href="/roadmap/">Roadmap</Nav.Link>
             <Nav.Link href="/members/">Token holders</Nav.Link>            
             </Nav>     

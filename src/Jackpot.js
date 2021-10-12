@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Title from './title';
 import { ownerOf, getTokenSupply } from "./utils/interact";
-import jackpotimg from './media/jackpot.jpg';
+import hazel from './media/grey.png';
 import Spinner from 'react-bootstrap/Spinner'
 import { Button } from "react-bootstrap";
 
@@ -86,35 +86,42 @@ useEffect(() => {
 return (
     <>
     {/** Start of Intro */}
-    <h1 class="text-6xl md:text-6xl xl:text-9xl font-bold pb-3">Jackpot</h1>
+    <h1 class="text-6xl md:text-6xl xl:text-9xl font-bold pb-3">Community Prizes</h1>
     <div class="md:flex md:flex-row-reverse">
 
     <div class="w-1/3">
-    <img width={290} src={jackpotimg} class="rounded-full" />
+    <img width={290} src={hazel} class="rounded-full" />
     </div>
         <div class="md:w-2/3">
          
 
           <div class="pr-5 py-3">
             <div class="lg:text-base xl:text-lg pb-2 text">    
-   
-          
-          <p>16% of all total sales from the mint will be set aside for the jackpot which could potentially be valued at around 12 ETH. 
-          </p>
+          <h3>Speacial Token Numbers</h3>
+          <p>Wallets that <strong>mint</strong> the following tokens will receive:</p>
+         
+          <li>69: <strong>.4 ETH</strong></li>
+          <li>420: <strong>.8 ETH</strong></li>
+          <li>1337: <strong>1.6 ETH</strong></li>
+          <br/>
+
+          <h3>Mint Prizes</h3>
+
           <p>4 winners in three tiers will be picked at random.</p>
-          <p><strong>Payout</strong>
+          <p><strong>Prize</strong>
             <ul class="list-disc">
-              <li>Tier 3: Wallets with less than 10 Huskies = 2 winners will recieve a single jackpot of <strong>1.2 ETH each</strong></li>
-              <li>Tier 2: Wallets between 15 to 10 Huskies = 1 winner will recieve a single jackpot of <strong>3.2 ETH</strong></li>
-              <li>Tier 1: Wallets with more than 15 Huskies = 1 winner will recieve a single jackpot of <strong>6.4 ETH</strong></li>
+              <li>Tier 3: Wallets with less than 10 Huskies = 2 winners will recieve a single prize of <strong>1 ETH each</strong></li>
+              <li>Tier 2: Wallets between 15 to 10 Huskies = 1 winner will recieve a single prize of <strong>3 ETH</strong></li>
+              <li>Tier 1: Wallets with more than 15 Huskies = 1 winner will recieve a single prize of <strong>6.4 ETH</strong></li>
             </ul>
             </p><p>
             <strong>Terms & Conditions:</strong>
             <ul class="list-disc">
               <li>At the end of the mint, a random number generator will be used as an index to pick a winner in each tier.</li>
-              <li>Winners will be published on the website as well as being announced on Discord. </li>
+              <li>Winners will be published on the token holders section of the website as well as being announced on Discord. </li>
               <li>ETH will be transferred to the winners wallets the same day.</li>
-              <li>You will need to hold on to your Huskies until the drawing has been completed for at least 24 hours after we mint out in order to be eligible for the jackpot.</li>
+              <li>The wallet that minted the special numbers will reveive the prize.</li>
+           
             </ul>
             </p>        
 

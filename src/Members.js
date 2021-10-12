@@ -101,7 +101,7 @@ const Members = ({}) => {
         <Tab eventKey="collection" title="My Collection">
         <MyCollection collections={collections} />
         </Tab>
-        <Tab eventKey="jackpot" title="Jackpot">
+        <Tab eventKey="prizes" title="Community Prizes">
         Winners will be announced here. 
         </Tab>
         <Tab eventKey="vote" title="Community Project Voting" disabled>
