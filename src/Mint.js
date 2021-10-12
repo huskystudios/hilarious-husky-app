@@ -1,10 +1,9 @@
 import { useEffect, useState} from "react";
 import {
   getCurrentWalletConnected, //import here
-  mintNFT, getTokenSupply, getEthPrice, isSaleActive, getContractPrice, tokensByOwner
+  mintNFT, getTokenSupply, getGasPrice, getEthPrice, isSaleActive, getContractPrice, tokensByOwner
 } from "./utils/interact.js";
 import Button from 'react-bootstrap/Button'
-import { getGasPrice } from "./utils/interact.js";
 import Alert from 'react-bootstrap/Alert'
 import MyCollection from "./MyCollection.js";
 

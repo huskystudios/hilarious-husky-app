@@ -133,7 +133,7 @@ return (
 </div>
 <div class="flex flex-wrap justify-between">
 <Title title={"Leaderboard"} />
-<Title title={`Jackpot: ${jackpot} ETH`} />
+<Title title={`Current Reward Pool: ${jackpot} ETH`} />
 <Title title={`Total minted: ${supply}/3000`} />
 </div>
 
