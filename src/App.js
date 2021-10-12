@@ -19,13 +19,16 @@ import Home from './home';
 import Jackpot from './Jackpot';
 import Roadmap from './roadmap';
 import Members from "./Members";
-import {firebase} from './initFirebase';
-
+import {app} from './initFirebase';
+import { getAnalytics } from "firebase/analytics";
 
 const history = createBrowserHistory();
 
+getAnalytics(app)
 
 function App() {
+
+
 
   return (
     <>

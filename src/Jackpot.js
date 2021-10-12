@@ -4,7 +4,7 @@ import { ownerOf, getTokenSupply } from "./utils/interact";
 import hazel from './media/grey.png';
 import Spinner from 'react-bootstrap/Spinner'
 import { Button } from "react-bootstrap";
-
+import { Helmet } from "react-helmet";
 
 const Jackpot = (props) => {
 
@@ -85,6 +85,10 @@ useEffect(() => {
 
 return (
     <>
+        <Helmet>
+    <title>Hilarious Huskies - Prizes</title>
+       </Helmet>
+
     {/** Start of Intro */}
     <h1 class="text-6xl md:text-6xl xl:text-9xl font-bold pb-3">Community Prizes</h1>
     <div class="md:flex md:flex-row-reverse">

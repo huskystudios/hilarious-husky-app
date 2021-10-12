@@ -1,11 +1,14 @@
 import Title from './title';
-
+import { Helmet } from 'react-helmet';
 const Roadmap = (props) => {
 
 const huskiesonDisplay = ["310.png","420.png","69.png","109.png","logo.gif","123.png","115.png","1337.png","266.png"]
 
 return (
     <>
+            <Helmet>
+    <title>Hilarious Huskies - Roadmap</title>
+       </Helmet>
     {/** Start of Intro */}
     <div class="flex flex-wrap pt-2">
 
