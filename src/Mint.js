@@ -223,6 +223,9 @@ address &&(
         Your wallet will ask you to sign the transaction which can take up to 180 seconds to process. 
         You can monitor the progress on Etherscan, but log onto Discord if you have trouble and we'll help you out!
         </p>
+        <p>
+        <strong> Mint price: .025 ETH</strong>
+        </p>
 </div>
 
 <div>
@@ -239,9 +242,14 @@ address &&(
  </div>   
  <div class="flex flex-wrap font-medium justify-center pt-2">
    
+   {/*
    <div>ETH {price} (approx ${(price*ethprice).toFixed(2)}) + Gas
      | Aprox Gas: {gasPrice} GWEI
      </div>
+
+   */}
+   
+   <div>ETH {(price).toFixed(5)}   </div>
 
      </div>
      <div class="flex flex-wrap font-bold justify-center pt-2">
