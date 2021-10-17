@@ -166,7 +166,7 @@ return (
                         <div ref={messagesEndRef} />
             </div>
 
-            <div class="animate-pulse pl-3 flex flex-wrap space-x-2">
+            <div class="animate-pulse pl-3 flex flex-wrap space-x-2 h-3">
             {isTyping && isTyping.map((items, index)=>{
               if(items.typing)
                 return(<div key={index} class="text-xs">{items.username} is typing...</ div>)})}           
