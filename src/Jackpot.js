@@ -5,6 +5,7 @@ import hazel from './media/grey.png';
 import Spinner from 'react-bootstrap/Spinner'
 import { Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import { getUsername } from "./utils/interact";
 
 const Jackpot = (props) => {
 
@@ -20,7 +21,10 @@ const getOwnerData = async (index) => {
   try{
     let address = await ownerOf(index).then((address)=>{return(address)}) 
     let numtoken = index
-    object = {address: address, tokens: numtoken}
+    let username  = await getUsername(address)
+    
+   
+    object = {address: address, tokens: numtoken, username: username}
 
     }catch(e){console.log(e)}
 
@@ -50,7 +54,8 @@ useEffect(() => {
 
       let object
       try{
-      object = {address: item.address, tokens:countOccurrences(owners, item.address)}
+    
+      object = {address: item.address, tokens:countOccurrences(owners, item.address), username: item.username}
           return(object)
           ////remove duplicates from holders
    }catch(e){console.log(e)}})
@@ -73,6 +78,10 @@ useEffect(() => {
         }
         
         uniqueArray.sort( compare );
+
+       
+
+   
         
       setLeaderboard(uniqueArray)
       setShowLeader(true)
@@ -149,6 +158,8 @@ return (
 <thead>
   <tr class="font-semibold">
   <th class="text-center">Tokens Owned</th>
+  
+  <th class="text-center">Owner Os Username</th>
   <th class="text-center">Owner Address</th>
    
   </tr>
@@ -156,18 +167,15 @@ return (
   <tbody>
 {(leaderboard.map((husk)=>{
 
-  if(husk.address === "0xCcB6D1e4ACec2373077Cb4A6151b1506F873a1a5")
-  {
-    return(null) ///owner address - not participating in the jackpot obviously.
-  }
 
   return(<>
-  <tr>
+  <tr class="text-sm">
   <td class="text-center">
   {husk.tokens && husk.tokens}
   </td>
-  
+  <td class="font-medium">{husk.username && husk.username}</td>
   <td>{husk.address && husk.address}</td>
+  
 
   
   </tr>

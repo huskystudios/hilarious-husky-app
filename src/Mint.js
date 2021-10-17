@@ -238,7 +238,7 @@ address &&(
   <Button size={"lg"} onClick={IncrementItem} variant="primary">+</Button>
   <MintButtonLogic />
   
-  </div>
+  </div>  
  </div>   
  <div class="flex flex-wrap font-medium justify-center pt-2">
    

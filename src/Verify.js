@@ -27,7 +27,7 @@ const Verify = (props) => {
         <p>
           Hilarious Huskies is part of the beta program at WalliD! <a class="hover:underline" href="https://wallid.io/NFTproof" target="_blank">Verify now!</a>
         </p>
-       <a href="https://wallid.io/NFTproof" target="_blank"> <img width="150" src={`https://wallid.io/_nuxt/img/logo-wallid.2a194a9.png`} /></a>
+       <a href="https://wallid.io/NFTproof" target="_blank"> <img width={100} src={`https://wallid.io/_nuxt/img/logo-wallid.2a194a9.png`} /></a>
 
         
         </div>
@@ -37,8 +37,8 @@ const Verify = (props) => {
  </div>
 </div>
 
-     <div class="hidden lg:w-1/2 md:flex md:flex-wrap">
-     <img class="shadow-lg rounded-3xl" src={`https://wallid-images.s3.eu-west-3.amazonaws.com/users/-10102866801633539184561`} />
+     <div class="hidden lg:w-1/2 md:flex justify-content-center">
+     <img class="shadow-lg rounded-3xl" width={300} src={`https://wallid-images.s3.eu-west-3.amazonaws.com/users/-10102866801633539184561`} />
     </div>
      
       </div>      

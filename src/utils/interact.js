@@ -19,6 +19,26 @@ export async function getContractPrice(){
 }
 
 
+
+export async function getUsername(owner){
+
+  const init = {method: 'GET', headers: { }}
+
+  let osRequest 
+  let osResponse 
+  let username = null
+
+  try{
+  osRequest = await fetch(`https://api.opensea.io/api/v1/assets?owner=${owner}&order_direction=desc&offset=0&limit=1`, init);
+  osResponse = await osRequest.json()
+  username = osResponse.assets[0].owner.user.username
+  }catch(e){console.log(e)}
+
+  return(username)
+
+}
+
+
 export const getContractAddress = () => {
   return(contractAddress)
   }
