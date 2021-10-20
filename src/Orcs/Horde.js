@@ -79,10 +79,8 @@ const getStats = async (merged) => {
 
 const init = async () => {
 
-  const dbRef = ref(db);
- 
 
-  get(child(dbRef, `etherorcs/orcs/`)).then((snapshot) => {
+  get(child(ref(db), `etherorcs/orcs/`)).then((snapshot) => {
     if (snapshot.exists()) {
     
 
