@@ -15,8 +15,8 @@ return (
        <div class="hidden lg:w-1/2 lg:flex lg:flex-wrap">
         <div class="flex flex-wrap content-start pl-6">
             {Array.from({ length: 9 }).map((_, index) => (
-              <div key={index} class="p-1 w-1/3">
-            <img class="shadow-lg rounded-3xl" src={`https://huskies.s3.eu-west-2.amazonaws.com/images/${huskiesonDisplay[index]}`} />
+              <div key={index} class="p-3 w-1/3">
+            <img class="shadow-lg rounded-full" src={`https://huskies.s3.eu-west-2.amazonaws.com/images/${huskiesonDisplay[index]}`} />
             </div>
           ))}
           </div>

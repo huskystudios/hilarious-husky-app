@@ -11,6 +11,7 @@ import { getDatabase, ref, set, onValue, query, orderByValue, push, orderByChild
 import { Helmet } from "react-helmet";
 import { analytics } from "./initFirebase.js";
 import { logEvent } from "firebase/analytics";
+import OrcsDashboard from "./Orcs/App"
 
 const Members = ({}) => {
 
@@ -108,8 +109,8 @@ const Members = ({}) => {
         <Tab eventKey="prizes" title="Community Prizes">
         Winners will be announced here. 
         </Tab>
-        <Tab eventKey="vote" title="Community Project Voting" disabled>
-  
+        <Tab eventKey="vote" title="EtherOrcs Alpha">
+        <OrcsDashboard />
         </Tab>
        
       </Tabs>

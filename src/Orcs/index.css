@@ -1,0 +1,30 @@
+@import url("https://use.typekit.net/tnn4uat.css");
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@tailwind base;
+@layer base {
+    h1 {
+      @apply text-3xl font-bold font-sans text-yellow-400;
+    }
+    h2 {
+      @apply text-2xl xl:text-4xl pb-2 font-bold font-sans ;
+    }
+    h3 {
+      @apply text-lg ;
+    }
+    a {
+      @apply text-blue-900 underline;
+    }
+    p {
+        @apply lg:text-base xl:text-lg pb-2 ;
+      }
+    button {
+       @apply border-2 p-1 bg-yellow-700 hover:shadow-lg text-white font-bold;
+      }
+      input {
+        @apply border-2 p-1 bg-yellow-400 hover:shadow-lg text-white font-bold text-center;
+       }
+
+      
+  }
+@tailwind components;
+@tailwind utilities;
