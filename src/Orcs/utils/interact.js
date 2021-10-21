@@ -81,6 +81,7 @@ export const lookupAllOrcs = async ({start, stop, array})=>{
       calls: [{ reference: 'orcsCall'+i.toString(), methodName: 'orcs', methodParameters: [i]},
       { reference: 'claimableCall'+i.toString(), methodName: 'claimable', methodParameters: [i]},
       { reference: 'activitiesCall'+i.toString(), methodName: 'activities', methodParameters: [i]},
+      { reference: 'ownerOfCall'+i.toString(), methodName: 'ownerOf', methodParameters: [i]},
      ]
     };
     tempArr.push(tx);
@@ -96,6 +97,7 @@ export const lookupAllOrcs = async ({start, stop, array})=>{
      calls: [{ reference: 'orcsCall'+i.toString(), methodName: 'orcs', methodParameters: [i]},
      { reference: 'claimableCall'+i.toString(), methodName: 'claimable', methodParameters: [i]},
      { reference: 'activitiesCall'+i.toString(), methodName: 'activities', methodParameters: [i]},
+     { reference: 'ownerOfCall'+i.toString(), methodName: 'ownerOf', methodParameters: [i]},
     ]
    };
    tempArr.push(tx);
@@ -119,6 +121,11 @@ for(let i=loopStart; i<loopEnd; i++){
   let level =  orcData[4]
   let lvlProgress =  orcData[6]
   let action = activity
+  let ownerAdd = results.results[`EtherOrcs${i}`].callsReturnContext[2].returnValues[0]
+
+  if(ownerAdd === "0x0000000000000000000000000000000000000000"){
+    ownerAdd = results.results[`EtherOrcs${i}`].callsReturnContext[3].returnValues[0]
+  }
   
 const {calcLevel, activitymap} = calcuclateLevel({action, claimable, level, lvlProgress})
 

@@ -6,7 +6,7 @@ import { CSVLink } from "react-csv";
 import { getContract } from "./utils/interact";
 import { db } from "./initFirebase";
 import { getDatabase, ref, set, onValue, equalTo, query, get,child, orderByValue, push, orderByChild, limitToFirst, limitToLast, startAt, endAt} from "firebase/database";
-import Activity from "./Activity";
+
 
 const Leaderboard = ({tokenid}) => {
   

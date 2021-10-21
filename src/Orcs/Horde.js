@@ -6,7 +6,7 @@ import { CSVLink } from "react-csv";
 import { getContract } from "./utils/interact";
 import { db} from "./initFirebase";
 import { getDatabase, ref, set, onValue, equalTo, query, get,child, orderByValue, push, orderByChild, limitToFirst, limitToLast, startAt, endAt} from "firebase/database";
-import Activity from "./Activity";
+
 
 const Horde = () => {
   
@@ -124,7 +124,7 @@ return (
 
 <h2>What is everybody doing?</h2>
 
-<p>You can <Activity contract={contract}/> and then <Button onClick={handleClick}>{showData ? ("Reload Data") : "Fetch Orc Level and Activity from Dbase"}</Button>
+<p>You can <Button onClick={handleClick}>{showData ? ("Reload Data") : "Fetch Orc Level and Activity from Dbase"}</Button>
 {" "}It will take a second or two</p>
 
 

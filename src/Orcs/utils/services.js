@@ -2,32 +2,6 @@
 import { db } from "../initFirebase";
 import { getDatabase, ref, set, onValue, query, get,child, equalTo, orderByValue, push, orderByChild, limitToLast} from "firebase/database";
 
-export const updateDatabase = async (orc) => {
-      
-    const orcDataref = ref(db, 'etherorcs/orcs/' + orc.tokenid)
-    
-      await set(orcDataref, {
-        owner: orc.owner.toLowerCase(),
-        action: orc.action,
-        actionString: orc.actionString,
-        tokenid: parseInt(orc.tokenid),
-        claimable: orc.claimable,
-        level: parseInt(orc.level),
-        calcLevel: parseFloat(orc.calcLevel),
-        time: orc.time,
-        body: orc.body,
-        helm: orc.helm,
-        mainhand: orc.mainhand,
-        offhand: orc.offhand,
-        totalZug: (4 + parseInt(orc.zugModifier)),
-        attributes: orc.attributes
-  
-      });   
-
-      console.log(`Updated Orc #${orc.tokenid} metadats`)
-  
-  }
-
 export const getMyOrcsObject = async (address) => {
   
   const myOrcQuery = query(ref(db, 'orcs'), orderByChild('owner'), equalTo(address.toLowerCase())) ///"0x25aBa46Dcb360902Ab8CA72cA8528F1da1D903d8"));
