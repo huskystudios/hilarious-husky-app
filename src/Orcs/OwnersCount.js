@@ -59,6 +59,8 @@ onValue(myOrcQuery, (snapshot)=>{
         return JSON.stringify(obj) === _thing;
       });
     });
+
+    console.log(uniqueArray)
       //sort holders 
     function compare( a, b ) {
       if ( a.tokens < b.tokens){
