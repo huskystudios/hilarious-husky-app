@@ -6,7 +6,7 @@ import { CSVLink } from "react-csv";
 import { getContract } from "./utils/interact";
 import { db } from "./initFirebase";
 import { getDatabase, ref, set, onValue, equalTo, query, get,child, orderByValue, push, orderByChild, limitToFirst, limitToLast, startAt, endAt} from "firebase/database";
-
+import { getUsername } from "../utils/interact";
 
 const Leaderboard = ({tokenid}) => {
   
@@ -61,6 +61,7 @@ onValue(myOrcQuery, (snapshot)=>{
 }
       
       },{onlyOnce: true})
+      
 
       setorcObject(dataArry)
 }
@@ -76,8 +77,8 @@ if(!showData){
 return (
     <>
 
-<div class="text-lg font-bold font-serif flex flex-wrap ">LEADERBOARD</div>  
-<div class="py-4 text-lg font-bold font-serif flex flex-wrap "><button onClick={handleClick}>Ye Orcs are mighty... Load Leaderboard</button></div>  
+<div class="text-lg font-bold flex flex-wrap ">LEADERBOARD</div>  
+<Button onClick={handleClick}>Ye Orcs are mighty... Load Leaderboard</Button>
 
 
 {orcObject && (
@@ -88,6 +89,7 @@ return (
   <thead>
     <tr class="text-center text-xs">
     <th class="border-1 border-yellow-600">Token ID</th>
+    <th class="border-1 border-yellow-600">Owner OS username</th>
     <th class="border-1 border-yellow-600">Owner</th>
      <th class="border-1 border-yellow-600">Level</th>
  
@@ -104,6 +106,7 @@ return (
     <td class="border-1 border-yellow-600"> 
     <a target="_blank" href={`https://opensea.io/assets/0x7d9d3659dcfbea08a87777c52020BC672deece13/${orc.tokenid}`}>{orc.tokenid}</a>
     </td>
+    <td class="border-1 border-yellow-600"> {orc.username}</td>    
     <td class="border-1 border-yellow-600">
     <a target="_blank" href={`https://etherscan.io/address/${orc.owner}/`}>{orc.owner}</a>
     </td>
@@ -117,7 +120,7 @@ return (
 </div>
 )}
 <div class="py-5">
-<p class="text-sm">NB: </p>
+<p class="text-sm">NB: This is a simple ranking based on (claimable + level progress)1000 if training and just level if farming or unstaked.</p>
 </div>
 
     </>

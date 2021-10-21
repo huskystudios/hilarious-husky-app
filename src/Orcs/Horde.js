@@ -124,9 +124,10 @@ return (
 
 <h2>What is everybody doing?</h2>
 
-<p>You can <Button onClick={handleClick}>{showData ? ("Reload Data") : "Fetch Orc Level and Activity from Dbase"}</Button>
-{" "}It will take a second or two</p>
 
+
+<p>Click the button to load level and trait data for all Orcs. Export to CSV</p>
+<Button onClick={handleClick}>{showData ? ("Reload Data") : "Fetch Orc Level and Activity from Dbase"}</Button>
 
 {orcObject && (
   <>

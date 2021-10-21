@@ -47,7 +47,7 @@ onValue(myOrcQuery, (snapshot)=>{
           let object
           try{
         
-          object = {address: value.owner, tokens:countOccurrences(dataArry, value.owner)}
+          object = {address: value.owner, username: value.username, tokens:countOccurrences(dataArry, value.owner)}
           tokenCount.push(object)
               ////remove duplicates from holders
        }catch(e){console.log(e)}
@@ -96,8 +96,8 @@ if(!showData){
 return (
     <>
 
-<div class="text-lg font-bold font-serif flex flex-wrap ">OWNERS</div>  
-<div class="py-4 text-lg font-bold font-serif flex flex-wrap "><button onClick={handleClick}>Ye Orcs are mighty... Load ORC WRANGLERS</button></div>  
+<div class="text-lg font-bold flex flex-wrap ">OWNERS</div>  
+<Button onClick={handleClick}>Ye Orcs are mighty... Load ORC WRANGLERS</Button> 
 
 
 {orcObject && (
@@ -107,8 +107,9 @@ return (
 
   <thead>
     <tr class="text-center text-xs">
-    <th class="border-1 border-yellow-600">Owner</th>
-     <th class="border-1 border-yellow-600">ORcs</th>
+    <th class="border-1 border-yellow-600">Owner OS username</th>
+     <th class="border-1 border-yellow-600">Address</th>
+     <th class="border-1 border-yellow-600">ORC Count</th>
  
     </tr>
     </thead>
@@ -120,6 +121,7 @@ return (
 
   return(<>
      <tr key={orc.tokenid} class="text-center text-sm">
+     <td class="border-1 border-yellow-600"> {orc.username}</td>     
     <td class="border-1 border-yellow-600">
     <a target="_blank" href={`https://etherscan.io/address/${orc.address}/`}>{orc.address}</a>
     </td>

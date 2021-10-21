@@ -60,7 +60,7 @@ function OrcsDashboard() {
 
                 
 
-                <ControlledTabs />}
+                <ControlledTabs />
 
 
 </>
