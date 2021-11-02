@@ -82,14 +82,19 @@ const init = async () => {
 
   get(child(ref(db), `etherorcs/orcs/`)).then((snapshot) => {
     if (snapshot.exists()) {
-    
 
-      let csv = {data: snapshot.val(),
+      let arrObj = []
+
+      for (const [key, value] of Object.entries(snapshot.val())) {
+        arrObj.push(value);
+      }
+console.log(arrObj)
+        let csv = {data: arrObj,
         headers: headers,
         filename: 'OrcActivityReport.csv'}
         setCsvReport(csv) ///for export
-        setorcObject(snapshot.val())
-        getStats(snapshot.val())
+        setorcObject(arrObj)
+        getStats(arrObj)
     } else {
       console.log("No data available");
     }
