@@ -26,7 +26,7 @@ const handleClick = (e)=>{
 
 
 const getAllStats = async ()=>{
-  const myOrcQuery = query(ref(db, 'etherorcs/orcs/'), orderByChild('calcLevel'), limitToLast(20) ) ///"0x25aBa46Dcb360902Ab8CA72cA8528F1da1D903d8"));
+  const myOrcQuery = query(ref(db, 'etherorcs/orcs/'), orderByChild('calcLevel'), limitToLast(50) ) ///"0x25aBa46Dcb360902Ab8CA72cA8528F1da1D903d8"));
 
   let dataArry = []
 
