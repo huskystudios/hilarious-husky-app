@@ -9,7 +9,6 @@ function Home() {
 
   return (
     <div class="space-y-8">
-    <Intro />
     <Mint />
     </div>
   );
