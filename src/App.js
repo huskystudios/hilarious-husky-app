@@ -55,26 +55,8 @@ function App() {
                 <Route path="/huskies">
                 <Huskies />
                 </Route>
-                <Route path="/prizes">
-                <Jackpot />
-                </Route>
-                <Route path="/members">
-                <Members />
-                </Route>
-                <Route path="/faq">
-                <Faq />
-                </Route>
                 <Route path="/provenance">
                 <TableList />
-                </Route>
-                <Route path="/verify">
-                <Verify />
-                </Route>
-                <Route path="/team">
-                <Team />
-                </Route>
-                <Route path="/roadmap">
-                <Roadmap />
                 </Route>
                 <Route path="/">
                 <Home />

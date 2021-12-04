@@ -88,7 +88,7 @@ const init = async () => {
       for (const [key, value] of Object.entries(snapshot.val())) {
         arrObj.push(value);
       }
-console.log(arrObj)
+
         let csv = {data: arrObj,
         headers: headers,
         filename: 'OrcActivityReport.csv'}

@@ -11,12 +11,7 @@ function Home() {
     <div class="space-y-8">
     <Intro />
     <Mint />
-    <Verify />
-    <Faq />
-    <List />
-    <Team />
-    
-      </div>
+    </div>
   );
 }
 
