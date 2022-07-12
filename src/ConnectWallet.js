@@ -112,7 +112,9 @@ const isMetaMaskInstalled = async () => {
 
       ) : 
     isMetamask ? (
-<Button variant="dark" onClick={connectWalletPressed}>
+<span 
+className="hover:underline cursor-pointer"
+onClick={connectWalletPressed}>
 {walletAddress.length > 0 ? (
   "Connected: " +
   String(walletAddress).substring(0, 6) +
@@ -121,7 +123,7 @@ const isMetaMaskInstalled = async () => {
 ) : (
   <span>Connect Wallet</span>
 )}
-</Button>
+</span>
 
     ) : (
 

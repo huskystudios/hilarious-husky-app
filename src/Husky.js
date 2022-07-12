@@ -21,7 +21,7 @@ const Husky = ({tokenidprop}) => {
 
     const [huskyProv, setHuskyProv] = useState("Loading...");
     const placeholderImg = "https://huskies.s3.eu-west-2.amazonaws.com/grey.png"
-    const [imageSrc, setImageSrc] = useState(`https://huskies.s3.eu-west-2.amazonaws.com/images/${tokenId}.png`)
+    const [imageSrc, setImageSrc] = useState(`https://huskies.mypinata.cloud/ipfs/QmcpsEtFCzV7Pcqc4XRL8xYroQjgZDMy2Em68hjo3ihadm/images/${tokenId}.png`)
     const [mintedFlag, setMintedFlag] = useState(false);
     const [loadedFlag, setloadedFlag] = useState(false);
       
@@ -96,7 +96,7 @@ const getHuskyProvenance = async () => {
 
 
       const image = imageSrc
-      const ipfsLink = `https://gateway.pinata.cloud/ipfs/QmdDVGZijQQpvMxubwLxanU4HH8yVSk6HEsqtbtpJVugLH/${tokenId}.png`
+      const ipfsLink = `https://huskies.mypinata.cloud/ipfs/QmdDVGZijQQpvMxubwLxanU4HH8yVSk6HEsqtbtpJVugLH/${tokenId}.png`
       const heading = `Hilarious Husky #${tokenId}`
 
      

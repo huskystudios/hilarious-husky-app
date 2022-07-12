@@ -10,6 +10,8 @@ import { analytics } from "./initFirebase.js";
 import { logEvent } from "firebase/analytics";
 
 import Title from "./title.js";
+import ConnectWallet from "./ConnectWallet.js";
+import Socials from "./reusables.js";
 const Mint = (props) => {
   const [qty, setQty] = useState(0);
   //State variables
@@ -202,59 +204,42 @@ address &&(
 
   return (
     <>
-      <div class="flex flex-wrap justify-between">
 
-<Title title={"Mint your Hilarious Huskies"} />
-{!activeSale ? (
-<p><strong>Minting starts on October 15th, 2021</strong></p>) : (<strong>{cost} ETH </strong>)}
-
-
-</div>
-<div class="border-2 p-4 bg-white">
+<div class="border-2 p-4 bg-white w-full md:w-96">
       
 
     
 
 {isMetamask ? (
 <>
-<div class="lg:text-base xl:text-lg py-2 text">    
-        <p>
-        <strong>Instructions: </strong>Select the number of huskies to mint, then click "Mint". 
-        Your wallet will ask you to sign the transaction which can take up to 180 seconds to process. 
-        You can monitor the progress on Etherscan, but log onto Discord if you have trouble and we'll help you out!
-        </p>
-        <p>
-        <strong> Mint price: .025 ETH</strong>
-        </p>
-</div>
 
-<div>
-<div class="flex flex-wrap space-y-2 justify-center">
+
+<div className="flex flex-col justify-center items-center">
+<div class="text-xl font-bold uppercase text justify-center tracking-tighter">    
+
+Hilarious Huskies
+
+  </div>
+<div class="text-5xl font-bold uppercase tracking-wide py-2 text justify-center">    
+        Free Mint
+</div>
+<div class="flex flex-col space-y-2 justify-center">
+  
+    <ConnectWallet />
   
  
   <div class="space-x-4 flex justify-center">
   <Button size={"lg"} onClick={DecreaseItem} variant="primary">-</Button>
   <input class="text-center w-16" value={qty}></input>
   <Button size={"lg"} onClick={IncrementItem} variant="primary">+</Button>
-  <MintButtonLogic />
+  
   
   </div>  
+  <MintButtonLogic />
  </div>   
- <div class="flex flex-wrap font-medium justify-center pt-2">
-   
-   {/*
-   <div>ETH {price} (approx ${(price*ethprice).toFixed(2)}) + Gas
-     | Aprox Gas: {gasPrice} GWEI
-     </div>
-
-   */}
-   
-   <div>ETH {(price).toFixed(5)}   </div>
-
-     </div>
      <div class="flex flex-wrap font-bold justify-center pt-2">
 
-<span class="text-3xl">
+<span class="text-xl uppercase">
 {tokenSupply}/3000 minted
 </span>
 </div>
@@ -262,11 +247,11 @@ address &&(
 
 
         <div class="py-2">
-        {status && (
+        
           <Alert>
           <div class="break-word">{status}</div>
           </Alert>
-        )}
+        
         </div>
         
 <ShowCollection />
@@ -286,6 +271,8 @@ address &&(
 
         <div>
     </div>  
+
+    <Socials />
 </ div>
 
 

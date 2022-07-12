@@ -9,7 +9,7 @@ const MyCollection = ({collections}) => {
     <div class="min-h-full p-2">
      <div class="flex justify-between">
      <Title title={"My Collection"} />
-     <div><Button onClick={(e) => {e.preventDefault();window.location.href=`/mint/`;}} >Add more</Button></div>
+     
      </div>
   
   
@@ -19,10 +19,11 @@ const MyCollection = ({collections}) => {
         
          <div class="w-4/5" key={index}>
             <div class="flex justify-evenly">
-             <img class="rounded-full" src={`https://huskies.s3.eu-west-2.amazonaws.com/images/${pup}.png`} />
+             <img class="rounded-full" src={`https://huskies.mypinata.cloud/ipfs/QmdDVGZijQQpvMxubwLxanU4HH8yVSk6HEsqtbtpJVugLH/${pup}.png`} />
              </div>
              <div class="flex justify-evenly font-bold pt-2">
-               <a class="no-underline text-center" href={`/huskies/${pup}`}>Hilarious Huskies #{pup}</a></div>
+               <a class="no-underline text-center" rel='noopener noreferrer' target="_blank" href={`https://opensea.io/assets/ethereum/0x6e918a90dcb258353acca3dfdb2a54a5d81c4596/${pup}`}>
+               Hilarious Huskies #{pup}</a></div>
                       
         </div>
      

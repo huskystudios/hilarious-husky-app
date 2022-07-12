@@ -7,38 +7,22 @@ import ConnectWallet from './ConnectWallet';
 const NavComp = ({props}) => {
 
   return (
-      <div class="pb-3">
-      <div class="py-2 flex justify-between ">
-          <div class="text-2xl md:text-3xl font-bold break-words w-1/2">
+    <div class="flex flex-col">
+        <div className='flex flex-wrap justify-start items-center'>
+            
+          <div class="text-4xl uppercase font-bold w-48 break-words">
               Hilarious Huskies
           </div>
+        </div>
+      
    
-   <ConnectWallet />
+  
    </div>
-    <div class="flex justify-between py-1">    
-    <div class="flex md:flex-row-reverse	">
-      
-        <div class="flex flex-wrap space-x-2">
-        
-        <Navbar>   
-            <Nav>
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/mint/">Mint</Nav.Link>
-       
-            </Nav>     
-        </Navbar>
-      
-        </div>
-        <div>
-        <a href="/">
-        <img class="hidden md:flex rounded-full" width={60} alt="Logo" src={mobileLogo} />
-        </a>
-        </div>
-    </div>
     
     
-    </div>
-    </div>
+    
+    
+    
 )}
 
 export default NavComp;

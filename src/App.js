@@ -44,33 +44,18 @@ function App() {
     </Helmet>
    
     <Router history={history}>
-    <div class="min-h-screen"> 
-      <div class="container mx-auto">             
+    <div class="h-screen w-screen flex flex-wrap justify-center items-center"> 
+
          
-<NavComp />
-              <Switch>
-                <Route path="/mint">   
-                <Mint/>
-                </Route>
-                <Route path="/huskies">
-                <Huskies />
-                </Route>
-                <Route path="/provenance">
-                <TableList />
-                </Route>
-                <Route path="/">
-                <Home />
-                </Route>
 
-                
-              
-              
-              </Switch>
+<div className='flex flex-col justify-start'>
+              <Mint />
+              </div>
 
-              <Socials />
+              
            
           
-      </div>
+
       </div>
       </Router>
       </>
