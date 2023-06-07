@@ -44,7 +44,7 @@ function App() {
         Husky Studios
       </h1>
       <div className='text-center p-4'>
-        Smart contract development, NFTs, and more. Email 0xHusky at hello(at)huskystudios(dot)io for more info.        
+        Smart contract development, NFTs, and more. Email 0xHusky at hello(at)huskystudios(dot)io for more info or ping us on Discord (0xHusky#7639)...
       </div>
       </div>
       <Track />
