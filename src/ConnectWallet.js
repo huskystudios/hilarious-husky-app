@@ -96,7 +96,7 @@ const isMetaMaskInstalled = async () => {
 
   return (
    
-    <div>
+    <div className="bg-green-700 p-2 rounded-xl text-center m-2 text-white font-bold">
       {nav ? (
 
 <span variant="dark" onClick={connectWalletPressed}>
@@ -127,7 +127,7 @@ onClick={connectWalletPressed}>
 
     ) : (
 
-      <a href="https://metamask.app.link/dapp/hilarioushuskies.life/">Install a web 3 wallet</a>
+      <a href="https://metamask.app.link/dapp/huskystudios.io/">Install a web 3 wallet</a>
 
     ) }
 

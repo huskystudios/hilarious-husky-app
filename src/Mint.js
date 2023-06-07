@@ -8,7 +8,7 @@ import Alert from 'react-bootstrap/Alert'
 import MyCollection from "./MyCollection.js";
 import { analytics } from "./initFirebase.js";
 import { logEvent } from "firebase/analytics";
-
+import banner from "./media/banner.jpg"
 import Title from "./title.js";
 import ConnectWallet from "./ConnectWallet.js";
 import Socials from "./reusables.js";
@@ -215,13 +215,12 @@ address &&(
 
 
 <div className="flex flex-col justify-center items-center">
-<div class="text-xl font-bold uppercase text justify-center tracking-tighter">    
-
+<div class="text-5xl font-bold uppercase text-center justify-center tracking-tighter">    
+<img src={banner} class="w-full" />
 Hilarious Huskies
-
-  </div>
-<div class="text-5xl font-bold uppercase tracking-wide py-2 text justify-center">    
-        Free Mint
+</div>
+<div class="text-3xl font-bold uppercase tracking-wide py-2 text justify-center">    
+     .005 ETH
 </div>
 <div class="flex flex-col space-y-2 justify-center">
   
@@ -272,7 +271,7 @@ Hilarious Huskies
         <div>
     </div>  
 
-    <Socials />
+    
 </ div>
 
 

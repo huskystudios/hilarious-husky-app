@@ -19,7 +19,7 @@ const MyCollection = ({collections}) => {
         
          <div class="w-4/5" key={index}>
             <div class="flex justify-evenly">
-             <img class="rounded-full" src={`https://huskies.mypinata.cloud/ipfs/QmdDVGZijQQpvMxubwLxanU4HH8yVSk6HEsqtbtpJVugLH/${pup}.png`} />
+             <img class="rounded-full" src={`https://huskystudios.ams3.cdn.digitaloceanspaces.com/hilarioushuskies/images/${pup}.png`} />
              </div>
              <div class="flex justify-evenly font-bold pt-2">
                <a class="no-underline text-center" rel='noopener noreferrer' target="_blank" href={`https://opensea.io/assets/ethereum/0x6e918a90dcb258353acca3dfdb2a54a5d81c4596/${pup}`}>
