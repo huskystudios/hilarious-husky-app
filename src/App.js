@@ -17,6 +17,21 @@ getAnalytics(app)
 
 const title = "Husky Studios: A Web3 Creative Agency"
 const desc = "Husky Studios is a full service creative agency that specializes in NFTs, Web3, Ai, and Blockchain. We are a team of artists, developers, and marketers that are passionate about the future of the internet."
+
+const services = [
+"Smart Contract Design and Implementation ",
+"EVM Chains – Ethereum, Polygon, Avalanche",
+"Smart Contract Audit",
+"Known vulnerabilities, access control, logical flaws",
+"Adding blockchain to your existing project ",
+"NFT project management",
+"Consulting",
+"Web3 dapp",
+"Discord and Twitter sales bot",
+"Custom Whitelist process",
+"L1-L2 bridge"
+]
+
 function App() {
 
 
@@ -46,6 +61,21 @@ function App() {
       <div className='text-center p-4'>
         Smart contract development, NFTs, and more. Email 0xHusky at hello(at)huskystudios(dot)io for more info or ping us on Discord (0xHusky#7639)...
       </div>
+      <div className="text-2xl font-bold text-center p-2">
+        Services
+      </div>
+      <div>
+        {services.map((service) => (
+          <div className='text-center p-0'>
+            {service}
+            </div>
+        ))}
+      </div>
+
+      <div className='text-center p-4 text-indigo-500'>
+        This website sucks because we're busy other making cool stuff.
+      </div>
+
       </div>
       <Track />
     <Mint />
